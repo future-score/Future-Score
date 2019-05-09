@@ -74,12 +74,22 @@ app.use(session({
 app.use(flash());
 require('./passport')(app);
     
-
 const index = require('./routes/index');
 app.use('/', index);
 
 const authRoutes = require('./routes/auth');
 app.use('/auth', authRoutes);
-      
+
+const user = require('./routes/user');
+app.use('/user', user)
+
+const matches = require('./routes/matches');
+app.use('/match', matches);
+
+const predictions = require('./routes/predictions');
+app.use('/', predictions);
+
+const teams = require('./routes/teams');
+app.use('/', teams);
 
 module.exports = app;
