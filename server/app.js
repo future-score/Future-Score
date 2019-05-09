@@ -10,12 +10,12 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const cors = require('cors');
 
-const { DBURL } = process.env;
+const { DBURLA } = process.env;
 mongoose.Promise = Promise;
 mongoose
-  .connect(DBURL)
+  .connect(`${process.env.DBURLA}`, {useNewUrlParser: true})
   .then(() => {
-    console.log(`Connected to Mongo on ${DBURL}`)
+    console.log(`Connected to Mongo on ${DBURLA}`)
   }).catch(err => {
     console.error('Error connecting to mongo', err)
   });
@@ -27,7 +27,7 @@ const app = express();
 
 // Middleware Setup
 var whitelist = [
-  'http://localhost:3000'
+  'http://localhost:3000',''
 ];
 var corsOptions = {
   origin: function(origin, callback){
@@ -72,7 +72,9 @@ app.locals.title = 'Express - Generated with IronGenerator';
 const authRouter = require('./routes/auth');
 app.use('/api/auth', authRouter);
 
-
+app.use((req, res) => {
+  res.sendFile(__dirname + "/public/index.html");
+});
 
 module.exports = app;
 
