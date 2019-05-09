@@ -45,37 +45,97 @@ class Signup extends Component {
   };
 
   render() {
-    if (this.state.redirect) {return <Redirect to="/login" />}
+    if (this.state.redirect) {
+      return <Redirect to="/login" />;
+    }
     return (
-      <div>
-        <h3>Welcome!, create your account next:</h3>
-
-        <form onSubmit={this.handleFormSubmit}>
-          <fieldset>
-            <label>Username:</label>
-            <input
-              type="text"
-              name="username"
-              value={this.state.username}
-              onChange={e => this.handleChange(e)}
-            />
-          </fieldset>
-
-          <fieldset>
-            <label>Password:</label>
-            <input
-              type="password"
-              name="password"
-              value={this.state.password}
-              onChange={e => this.handleChange(e)}
-            />
-          </fieldset>
-
-          <input type="submit" value="Sign up" />
-        </form>
-
+      <div className="signup">
+        <div className="container">
+          <div className="signup-content">
+            <div className="signup-form">
+              <h2 className="form-title">Sign up</h2>
+              <form
+                method="POST"
+                className="register-form"
+                id="register-form"
+                onSubmit={this.handleFormSubmit}
+              >
+                <div className="form-group">
+                  <label>
+                    <i className="zmdi zmdi-account material-icons-name" />
+                  </label>
+                  <input
+                    type="text"
+                    name="username"
+                    value={this.state.username}
+                    id="username"
+                    placeholder="Your Name"
+                    onChange={e => this.handleChange(e)}
+                  />
+                </div>
+                {/* <div className="form-group">
+                                <label><i className="zmdi zmdi-email"></i></label>
+                                <input type="email" name="email" id="email" placeholder="Your Email"/>
+                            </div> */}
+                <div className="form-group">
+                  <label>
+                    <i className="zmdi zmdi-lock" />
+                  </label>
+                  <input
+                    type="password"
+                    name="password"
+                    value={this.state.password}
+                    id="pass"
+                    placeholder="Password"
+                    onChange={e => this.handleChange(e)}
+                  />
+                </div>
+                <div className="form-group form-button">
+                  <input
+                    type="submit"
+                    name="signup"
+                    id="signup"
+                    className="form-submit"
+                    value="Register"
+                  />
+                </div>
+              </form>
+              <h1>{this.state.error ? "Error" : null}</h1>
+            </div>
+          </div>
+        </div>
         <h1>{this.state.error ? "Error" : ""}</h1>
       </div>
+
+      // <div>
+      //   <h3>Welcome!, create your account next:</h3>
+
+      //   <form onSubmit={this.handleFormSubmit}>
+      //     <fieldset>
+      //       <label>Username:</label>
+      //       <input
+      //         type="text"
+      //         name="username"
+      //         value={this.state.username}
+      //         onChange={e => this.handleChange(e)}
+      //       />
+      //     </fieldset>
+
+      //     <fieldset>
+      //       <label>Password:</label>
+      //       <input
+      //         type="password"
+      //         name="password"
+      //         value={this.state.password}
+      //         onChange={e => this.handleChange(e)}
+      //       />
+      //     </fieldset>
+
+      //     <input type="submit" value="Sign up" />
+      //   </form>
+
+      //   <h1>{this.state.error ? "Error" : ""}</h1>
+      // </div>
     );
   }
 }

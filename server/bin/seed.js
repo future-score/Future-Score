@@ -1,8 +1,18 @@
-{"alfa_Alaves": 0.705220829553673, "alfa_Albacete": 0.28051120777970595, "alfa_Alcorcon": 0.02448319370903114, "alfa_Almeria": 0.2722915635953255, "alfa_Ath Bilbao": 0.8788824553507031, "alfa_Ath Madrid": 1.290892315718958, "alfa_Barcelona": 2.073987396923947,  "alfa_Betis": 0.988420225258369, "alfa_Cadiz": 0.4991286481559732, "alfa_Celta": 1.188709772738438, "alfa_Cordoba": 0.4795303641858126, "alfa_Eibar": 0.9964267581839742, "alfa_Elche": 0.42283158903520435, "alfa_Espanol": 0.8440067993794181, "alfa_Extremadura UD": 0.38501983503895293, "alfa_Getafe": 0.7847778531043776, "alfa_Gimnastic": 0.12855475202241692, "alfa_Girona": 0.8806968407425687, "alfa_Granada": 0.48780613652132, "alfa_Huesca": 0.7063284925187313, "alfa_La Coruna": 0.6882514728699582, "alfa_Las Palmas": 0.6196147743023397, "alfa_Leganes": 0.577903291785378, "alfa_Levante": 0.9305495780135837, "alfa_Lugo": 0.32952746444576236, "alfa_Malaga": 0.4852397075928475, "alfa_Mallorca": 0.4661697287677662, "alfa_Numancia": 0.3646810078648318, "alfa_Osasuna": 0.5586729880112185, "alfa_Oviedo": 0.4698240330364963, "alfa_Rayo Majadahonda": 0.3134408433316581, "alfa_Real Madrid": 1.8736289344576735, "alfa_Reus Deportiu": -0.17794596854358963, "alfa_Sevilla": 1.3023644075750638, "alfa_Sociedad": 1.2206546855232825, "alfa_Sp Gijon": 0.5978814815737757, "alfa_Tenerife": 0.4807961450478203, "alfa_Valencia": 1.2169882224174464, "alfa_Valladolid": 0.6781497440143728, "alfa_Vallecano": 0.67049676251306, "alfa_Villarreal": 1.1394973951590288, "alfa_Zaragoza": 0.5196048014197344, "beta_Alaves": -0.7405668041298112, "beta_Albacete": -0.38335772029834775, "beta_Alcorcon": -0.3793242959354335, "beta_Almeria": -0.2751329680537268, "beta_Ath Bilbao": -0.775148578259887, "beta_Ath Madrid": -1.540963174773516, "beta_Barcelona": -1.1009976506159111, "beta_Betis": -0.3834504180259685, "beta_Cadiz": -0.5879451417411536, "beta_Celta": -0.29661801987440706, "beta_Cordoba": 0.25999723196083835, "beta_Eibar": -0.6231608194797037, "beta_Elche": 0.018599143032526185, "beta_Espanol": -0.7062863455755479, "beta_Extremadura UD": -0.10376592838593396, "beta_Getafe": -0.9309777393750778, "beta_Gimnastic": -0.03876126294756698, "beta_Girona": -0.44957910600600826, "beta_Granada": -0.1863598003782181, "beta_Huesca": -0.33845832043892543, "beta_La Coruna": -0.26505417506096424, "beta_Las Palmas": -0.06635953583033535, "beta_Leganes": -0.6854804698729452, "beta_Levante": -0.4460946547289695, "beta_Lugo": -0.06787496156718947, "beta_Malaga": -0.4938194246094672, "beta_Mallorca": -0.3016480089482806, "beta_Numancia": -0.19123247598598944, "beta_Osasuna": -0.1471685744005573, "beta_Oviedo": -0.21142483759568556, "beta_Rayo Majadahonda": 0.08484577186715395, "beta_Real Madrid": -0.7967017271076677, "beta_Reus Deportiu": -0.49453462644797386, "beta_Sevilla": -0.5648562801425064, "beta_Sociedad": -0.5429148693937274, "beta_Sp Gijon": -0.3018758980841066, "beta_Tenerife": -0.239151482487861, "beta_Valencia": -0.7321046137247867, "beta_Valladolid": -0.2974811841335985, "beta_Vallecano": -0.22707361153778657, "beta_Villarreal": -0.7809171828185106, "beta_Zaragoza": -0.1386905923249969, "nu_1": 1.6407450392879805, "nu_2": 1.6423666956581116, "ro": -0.04210183702055415, "gamma": 0.4459591653008539},
 
+const mongoose = require("mongoose");
+const Team = require("../models/Team");
 
-
+mongoose
+  .connect("mongodb://localhost/teams", {useNewUrlParser: true })
+  .then(x => {
+    //limpiar la coleccion
+    Team.collection.drop();
+   
+    Team.create([
+  
+  
 {
+
   name: "Deportivo Alavés",
   alfa: 0.705220829553673,
   beta: -0.7405668041298112,
@@ -21,7 +31,7 @@
   gamma: 0.4459591653008539
 },
 {
-  name: "Club Atlético de Madrid"
+  name: "Club Atlético de Madrid",
   alfa: 1.290892315718958,
   beta: -1.540963174773516,
   nu1: 1.6407450392879805,
@@ -30,7 +40,7 @@
   gamma: 0.4459591653008539
 },
 {
-  name: "FC Barcelona"
+  name: "FC Barcelona",
   alfa: 2.073987396923947,
   beta: -1.1009976506159111,
   nu1: 1.6407450392879805,
@@ -139,7 +149,7 @@
   gamma: 0.4459591653008539
 },
 {
-  name: "Real Sociedad de Fútbol"
+  name: "Real Sociedad de Fútbol",
   alfa:  1.2206546855232825,
   beta: -0.5429148693937274,
   nu1: 1.6407450392879805,
@@ -148,7 +158,7 @@
   gamma: 0.4459591653008539
 },
 {
-  name: "Valencia CF"
+  name: "Valencia CF",
   alfa: 1.2169882224174464,
   beta: -0.7321046137247867,
   nu1: 1.6407450392879805,
@@ -157,7 +167,7 @@
   gamma: 0.4459591653008539
 },
 {
-  name: "Real Valladolid CF"
+  name: "Real Valladolid CF",
   alfa: 0.6781497440143728,
   beta: -0.2974811841335985,
   nu1: 1.6407450392879805,
@@ -166,7 +176,7 @@
   gamma: 0.4459591653008539
 },
 {
-  name:"Rayo Vallecano de Madrid"
+  name:"Rayo Vallecano de Madrid",
   alfa: 0.67049676251306,
   beta: -0.22707361153778657,
   nu1: 1.6407450392879805,
@@ -175,7 +185,7 @@
   gamma: 0.4459591653008539
 },
 {
-  name:"Villarreal CF"
+  name:"Villarreal CF",
   alfa: 1.1394973951590288,
   beta: -0.7809171828185106,
   nu1: 1.6407450392879805,
@@ -183,8 +193,18 @@
   ro: -0.04210183702055415,
   gamma: 0.4459591653008539
 },
-
-
-
+])
+.then(teamInserted =>{
+      console.log(teamInserted);
+      mongoose.disconnect();
+    })
+    .catch(err =>{
+      console.log(err);
+    })
+  console.log(`Connect to Mongo! Database name: "${x.connections[0].name}"`)
+})
+.catch(err => {
+  console.error('Err connecting to mongo', err)
+});
 
 
