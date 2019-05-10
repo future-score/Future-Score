@@ -97,12 +97,9 @@ app.use('/', predictions);
 const teams = require('./routes/teams');
 app.use('/', teams);
 
-
-
 app.use((req, res) => {
   res.sendFile(__dirname + "/public/index.html");
 });
-
 
 module.exports = app;
 
