@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Switch, Route, Redirect } from 'react-router-dom';
-
-
 import Signup from './components/auth/Signup';
 import Login from './components/auth/Login';
 import AuthService from './components/auth/AuthService';
-import Contents from './components/contents/Contents'
+import NavBar from './components/contents/NavBar'
 
 class App extends Component {
 
@@ -53,13 +51,12 @@ class App extends Component {
       return (
         <React.Fragment>
           {/* <Redirect to="/home"></Redirect> */}
-
           <div className="App">
             <header className="App-header">
-              {/* <Contents></Contents> */}
-              <Switch>
-                <Route exact path='/contents' render={() => <Contents getUser={this.getUser} />} />
-              </Switch>
+              <NavBar></NavBar>
+              {/* <Switch>
+                <Route exact path="/contents" component={Contents}> </Route> 
+              </Switch> */}
             </header>
           </div>
         </React.Fragment>
