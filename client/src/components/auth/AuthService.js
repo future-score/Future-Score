@@ -9,6 +9,7 @@ class AuthService {
   }
   
   signup = (username, password) => {
+    console.log(process.env)
     return this.service.post('/signup', {username, password})
     .then(response => response.data)
   }
