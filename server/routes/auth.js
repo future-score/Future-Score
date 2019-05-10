@@ -71,7 +71,10 @@ router.get('/currentuser', (req,res,next) => {
   if(req.user){
     res.status(200).json(req.user);
   }else{
-    next(new Error('Not logged in'))
+    res.status(500).json({
+      error:'Not logged in'
+    })
+    // next(new Error('Not logged in'))
   }
 })
 
