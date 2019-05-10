@@ -8,6 +8,7 @@ const path = require('path');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const cors = require('cors');
+const flash = require('flash')
 
 const { DBURLA } = process.env;
 mongoose.Promise = Promise;
