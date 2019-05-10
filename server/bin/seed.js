@@ -1,18 +1,18 @@
 
 const mongoose = require("mongoose");
 const Team = require("../models/Team");
+const data = require("./TeamsData.json")
 
 mongoose
-  .connect("mongodb://localhost/teams", {useNewUrlParser: true })
+  .connect('mongodb+srv://FS:ironhack@cluster0-ovrey.mongodb.net/test?retryWrites=true', {useNewUrlParser: true})
   .then(x => {
-    //limpiar la coleccion
-    Team.collection.drop();
-   
-    Team.create([
-  
-  
+    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
+  })
+  .catch(err => {
+    console.error('Error connecting to mongo', err)
+  });
+  const teamsArr=[
 {
-
   name: "Deportivo Alavés",
   alfa: 0.705220829553673,
   beta: -0.7405668041298112,
@@ -192,19 +192,30 @@ mongoose
   nu2: 1.6423666956581116,
   ro: -0.04210183702055415,
   gamma: 0.4459591653008539
-},
-])
-.then(teamInserted =>{
-      console.log(teamInserted);
-      mongoose.disconnect();
-    })
-    .catch(err =>{
-      console.log(err);
-    })
-  console.log(`Connect to Mongo! Database name: "${x.connections[0].name}"`)
-})
-.catch(err => {
-  console.error('Err connecting to mongo', err)
+}
+]
+
+data.teams.forEach(teamApi => {
+  teamsArr.forEach(teamInfo =>{
+    if(teamApi.name === teamInfo.name){
+      team = {
+      "teamId": teamApi.id,
+      "name": teamApi.name,
+      "tla": teamApi.tla,
+      "crestUrl": teamApi.crestUrl,
+      "venue": teamApi.venue,
+      "alfa": teamInfo.alfa,
+      "beta": teamInfo.beta,
+      "nu1": teamInfo.nu1,
+      "nu2": teamInfo.nu2,
+      "ro": teamInfo.ro,
+      "gamma": teamInfo.gamma
+      }
+      Team.create(team)
+      .then((data)=>{
+        console.log(`${data.name} save`)
+      })
+      .catch((err)=>{console.log(err)})
+    }
+  })
 });
-
-

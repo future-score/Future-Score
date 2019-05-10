@@ -3,20 +3,23 @@ require('dotenv').config();
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const express = require('express');
+
 // const favicon = require('serve-favicon');
+
 const mongoose = require('mongoose');
 const path = require('path');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const cors = require('cors');
 
-const { DBURL } = process.env;
+const { DBURLA } = process.env;
 mongoose.Promise = Promise;
 mongoose
-  .connect(DBURL)
+  .connect(`${process.env.DBURLA}`, {useNewUrlParser: true})
   .then(() => {
-    console.log(`Connected to Mongo on ${DBURL}`)
+    console.log(`Connected to Mongo on ${DBURLA}`)
   }).catch(err => {
+
     console.error('Error connecting to mongo', err)
   });
 
@@ -27,7 +30,9 @@ const app = express();
 
 // Middleware Setup
 var whitelist = [
-  'http://localhost:3000'
+  'http://localhost:3000',
+  'https://future-score.herokuapp.com/',
+  'http://future-score.herokuapp.com/'
 ];
 var corsOptions = {
   origin: function(origin, callback){
@@ -60,7 +65,9 @@ require('./passport')(app);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
+
 // app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
+
 
 
 
@@ -69,9 +76,39 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 
 
-const authRouter = require('./routes/auth');
-app.use('/api/auth', authRouter);
+// Enable authentication using session + passport
+app.use(session({
+  secret: 'irongenerator',
+  resave: true,
+  saveUninitialized: true,
+  store: new MongoStore( { mongooseConnection: mongoose.connection })
+}))
+app.use(flash());
+require('./passport')(app);
+    
+const index = require('./routes/index');
+app.use('/', index);
 
+const authRoutes = require('./routes/auth');
+app.use('/auth', authRoutes);
+
+const user = require('./routes/user');
+app.use('/user', user)
+
+const matches = require('./routes/matches');
+app.use('/', matches);
+
+const predictions = require('./routes/predictions');
+app.use('/', predictions);
+
+const teams = require('./routes/teams');
+app.use('/', teams);
+
+
+
+app.use((req, res) => {
+  res.sendFile(__dirname + "/public/index.html");
+});
 
 
 module.exports = app;
