@@ -4,10 +4,11 @@ const Schema   = mongoose.Schema;
 const TeamSchema = new Schema({
     teamId: Number,
     name: String,
+    shortName: String,
     tla: String,
     crestUrl: String,
     venue: String,
-    alfa: Number,
+    alpha: Number,
     beta: Number,
     nu1: Number,
     nu2: Number,

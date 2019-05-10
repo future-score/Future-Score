@@ -16,6 +16,7 @@ mongoose
   .then(() => {
     console.log(`Connected to Mongo on ${DBURLA}`)
   }).catch(err => {
+
     console.error('Error connecting to mongo', err)
   });
 
@@ -63,16 +64,45 @@ app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-
 // default value for title local
 app.locals.title = 'Express - Generated with IronGenerator';
 
-const authRouter = require('./routes/auth');
-app.use('/api/auth', authRouter);
+
+
+// Enable authentication using session + passport
+app.use(session({
+  secret: 'irongenerator',
+  resave: true,
+  saveUninitialized: true,
+  store: new MongoStore( { mongooseConnection: mongoose.connection })
+}))
+app.use(flash());
+require('./passport')(app);
+    
+const index = require('./routes/index');
+app.use('/', index);
+
+const authRoutes = require('./routes/auth');
+app.use('/auth', authRoutes);
+
+const user = require('./routes/user');
+app.use('/user', user)
+
+const matches = require('./routes/matches');
+app.use('/', matches);
+
+const predictions = require('./routes/predictions');
+app.use('/', predictions);
+
+const teams = require('./routes/teams');
+app.use('/', teams);
+
+
 
 app.use((req, res) => {
   res.sendFile(__dirname + "/public/index.html");
 });
+
 
 module.exports = app;
 
