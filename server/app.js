@@ -27,7 +27,8 @@ const app = express();
 // Middleware Setup
 var whitelist = [
   'http://localhost:3000',
-  'https://future-score.herokuapp.com/'
+  'https://future-score.herokuapp.com/',
+  'http://future-score.herokuapp.com/'
 ];
 var corsOptions = {
   origin: function(origin, callback){
