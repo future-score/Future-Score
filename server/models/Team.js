@@ -16,5 +16,5 @@ const TeamSchema = new Schema({
     gamma: Number,
 });
 
-const Team = mongoose.model('Match', TeamSchema);
+const Team = mongoose.model('Team', TeamSchema);
 module.exports = Team;

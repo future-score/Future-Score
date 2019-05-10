@@ -3,7 +3,7 @@ const router  = express.Router();
 const Prediction = require('../models/Prediction')
 
 //newPrediction
-router.post('/prediction/new', (req, res, next) => {  
+router.post('/new', (req, res, next) => {  
     const {predictionId, status, homeTeam, awayTeam} = req.body;
   
     const newPrediction = new Prediction({predictionId, status, homeTeam, awayTeam})
@@ -17,7 +17,7 @@ router.post('/prediction/new', (req, res, next) => {
 });
   
 //delete prediction
-router.delete('prediction/delete/:id', (req, res, next) => {
+router.delete('/delete/:id', (req, res, next) => {
     let id = req.params.id;
       
     Prediction.findByIdAndRemove(id)
@@ -30,7 +30,7 @@ router.delete('prediction/delete/:id', (req, res, next) => {
 });
   
 //update prediction
-router.put('prediction/update/:id' , (req, res, next) =>{
+router.put('/update/:id' , (req, res, next) =>{
     let id = req.params.id;
     const {predictionId, status, homeTeam, awayTeam} = req.body;
       
@@ -42,3 +42,5 @@ router.put('prediction/update/:id' , (req, res, next) =>{
         console.log(err);
       })
 });
+
+module.exports = router;

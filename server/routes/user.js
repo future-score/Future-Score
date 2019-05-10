@@ -1,6 +1,6 @@
 const express = require('express');
 const router  = express.Router();
-const User = require('./models/User')
+const User = require('../models/User')
 
 //delete user
 router.delete('user/delete/:id', (req, res, next) => {
@@ -28,3 +28,5 @@ router.put('user/update/:id' , (req, res, next) =>{
         console.log(err);
       })
 });
+
+module.exports = router;

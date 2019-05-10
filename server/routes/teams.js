@@ -78,4 +78,4 @@ router.post('/new', (req, res, next) => {
     })
 });
 
-module.export = router;
+module.exports = router;
