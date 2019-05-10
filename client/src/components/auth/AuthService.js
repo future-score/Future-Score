@@ -3,11 +3,11 @@ import axios from 'axios';
 class AuthService {
   constructor() {
     this.service = axios.create({
-      baseURL: 'http://localhost:3010/api/auth',
+      baseURL: `${process.env.REACT_APP_URL}`,
     //   withCredentials: true
     });
   }
-
+  
   signup = (username, password) => {
     return this.service.post('/signup', {username, password})
     .then(response => response.data)
