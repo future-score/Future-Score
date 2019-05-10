@@ -69,6 +69,7 @@ class Signup extends Component {
                     type="text"
                     name="username"
                     value={this.state.username}
+                  
                     id="username"
                     placeholder="Your Name"
                     onChange={e => this.handleChange(e)}
