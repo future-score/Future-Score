@@ -69,7 +69,7 @@ class App extends Component {
             <header className="App-header">
               <Switch>
                 <Route exact path='/signup' render={() => <Signup getUser={this.getUser} />} />
-                <Route exact path='/login' render={() => <Login getUser={this.getUser} />} />
+                <Route exact path='/' render={() => <Login getUser={this.getUser} />} />
               </Switch>
             </header>
           </div>
