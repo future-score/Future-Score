@@ -3,8 +3,21 @@ const router  = express.Router();
 const Team = require('../models/Team');
 
 //teams - DB
+router.get('/all', (req, res, next) => {
+    Team.find()
+    .then(team=>{
+        res.json(team);
+    })
+    .catch((err)=>{
+      console.log(err);
+    })
+  });
+
+//team - DB
 router.get('/team/:id', (req, res, next) => {
-    team.findById()
+  let id = req.params.id;
+
+    Team.find({teamId: id})
     .then(team=>{
         res.json(team);
     })
@@ -15,24 +28,28 @@ router.get('/team/:id', (req, res, next) => {
   
 //homeTeam - DB
 router.get('/hometeam/:id', (req, res, next) => {
-    homeTeam.findById()
-    .then(homeTeam=>{
-        res.json(homeTeam);
-    })
-    .catch((err)=>{
-      console.log(err);
-    })
-  });
+  let id = req.params.id;
+
+  Team.find({teamId: id})
+  .then(homeTeam=>{
+      res.json(homeTeam);
+  })
+  .catch((err)=>{
+    console.log(err);
+  })
+});
   
 //awayTeam - DB
 router.get('/awayteam/:id', (req, res, next) => {
-    awayTeam.findById()
-    .then(awayTeam=>{
-        res.json(awayTeam);
-    })
-    .catch((err)=>{
-      console.log(err);
-    })
+  let id = req.params.id;
+
+  Team.find({teamId: id})
+  .then(awayTeam=>{
+      res.json(awayTeam);
+  })
+  .catch((err)=>{
+    console.log(err);
+  })
 });
 
 //create teams - DB
