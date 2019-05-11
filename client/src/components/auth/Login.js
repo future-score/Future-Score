@@ -94,6 +94,13 @@ class Login extends Component {
                   />
                 </div>
               </form>
+             
+              <div className="center">
+                {/* <hr className="type-10"/> */}
+                <span>Don´t have an account?</span>
+                <a href="/signup">Sign up</a>
+              </div>
+              
               {/* <h1> {this.state.error} ? "Error" : ""</h1> */}
             </div>
           </div>

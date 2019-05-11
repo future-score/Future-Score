@@ -1,21 +1,29 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
     font-size: 13px;
     line-height: 1.8;
     color: #222;
-    /* background: #f8f8f8; */
+    overflow-y:hidden;
+    background: #1B1C1E;
+     /* background: #f8f8f8; 
     font-weight: 400;
     font-family: Poppins;
-    display: block;
-    /* margin: 8px; */
+     display: block; 
+       */
+    /* margin: 8px;  */
   }
-  .signup {
+  .signup:-webkit-scrollbar {
     margin-bottom: 150px;
+    display: none;
   }
   section {
     display: block;
   }
   .container {
-    background: #fff;
+    background: #1B1C1E;
     margin: 0 auto;
     /* -webkit-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05); */
     /* -webkit-border-radius: 20px; */
@@ -47,7 +55,7 @@ body {
     margin: 0;
     padding: 0;
     font-weight: bold;
-    color: #222;
+    color:#B0B1B3;
     font-family: Poppins;
     font-size: 56px;
     display: block;
@@ -84,6 +92,7 @@ body {
     font: normal normal normal 14px/1 'Material-Design-Iconic-Font';
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
+    color: 	#AAABAD;
   }
   .zmdi-account:before {
     content: '\f207';
@@ -103,7 +112,7 @@ body {
     box-sizing: border-box;
     outline: none;
     -webkit-appearance: unset !important;
-    background-color: white;
+    background-color: #1B1C1E;
     -webkit-rtl-ordering: logical;
     cursor: text;
     text-rendering: auto;
@@ -118,20 +127,49 @@ body {
     font: 400 11px system-ui;
     -webkit-writing-mode: horizontal-tb !important;
   }
+
+  ::placeholder {
+    color:#434446;
+  }
   .form-group:last-child {
     margin-bottom: 0px;
   }
   .form-button {
     text-align: center;
   }
+
   .form-submit {
     display: inline-block;
-    background: #6dabe4;
-    color: #fff;
+    background: #189574;
+    color: whitesmoke;
     border-bottom: none;
     width: auto;
     padding: 15px 39px;
     -webkit-border-radius: 5px;
     margin-top: 25px;
     cursor: pointer;
+  }
+  
+  .type-10 {
+  height: 1px;
+  color: #A9AAAC;
+  background-color: #A9AAAC;
+  border: none;
+
+  }
+
+  .center {
+    text-align: center;
+    padding-top: 50px;
+  }
+
+  span{
+    color: #494A4C;
+  }
+
+  a {
+    text-decoration: none;
+    cursor: pointer;
+    color: #A9AAAC;
+    margin-left: 5px;
   }
