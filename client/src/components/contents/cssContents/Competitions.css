@@ -1,0 +1,50 @@
+body {
+  margin: 0 auto;
+  background-color: #19231B;
+  overflow-y:hidden;
+  }
+  .welcome {
+    /* border: 1px solid white; */
+    margin-top: 100px;
+    /* border: 1px solid white; */
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .competitions {
+    /* border: 1px solid white; */
+    margin-top: 100px;
+    box-sizing: border-box;
+  }
+  
+  h2 {
+    color: white;
+    text-align: center;
+    font-size: 30px;
+  }
+  
+  .liga, .segunda {
+    margin: 0 auto;
+    /* height: 80px; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* margin-top: 100px; */
+    /* height: 50vh;  */
+  }
+  
+  
+  
+  .santander, .champions, .undostres, .premier {
+    /* border: 1px solid white; */
+    background-color:	#464749;
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  
+  /* .liga-image, .champions-image, .segunda-image, .premier-image {
+    filter: hue-rotate(220º) saturate(1.9) brightness(69.6%);
+  } */

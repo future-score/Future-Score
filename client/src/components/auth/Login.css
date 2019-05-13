@@ -1,6 +1,6 @@
-* {
+/* * {
   box-sizing: border-box;
-}
+} */
 
 body {
     font-size: 13px;
@@ -150,13 +150,13 @@ body {
     cursor: pointer;
   }
   
-  .type-10 {
+  /* .type-10 {
   height: 1px;
   color: #A9AAAC;
   background-color: #A9AAAC;
   border: none;
 
-  }
+  } */
 
   .center {
     text-align: center;

@@ -48,7 +48,7 @@ class Signup extends Component {
   render() {
     console.log(process.env)
     if (this.state.redirect) {
-      return <Redirect to="/login" />;
+      return <Redirect to="/" />;
     }
     return (
       <div className="signup">
@@ -103,6 +103,11 @@ class Signup extends Component {
                   />
                 </div>
               </form>
+              <div className="center">
+                {/* <hr className="type-10"/> */}
+                <span>Do you already have an account?</span>
+                <a href="/">Login</a>
+              </div>
               <h1>{this.state.error ? "Error" : null}</h1>
             </div>
           </div>

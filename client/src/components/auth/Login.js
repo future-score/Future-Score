@@ -41,7 +41,7 @@ class Login extends Component {
   };
 
   render() {
-    if (this.state.logged) return <Redirect to={"/contents"} />;
+    if (this.state.logged) return <Redirect to={"/competitions"} />;
     return (
       <div className="signup">
         <div className="container">

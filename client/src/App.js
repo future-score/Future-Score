@@ -5,9 +5,18 @@ import Signup from './components/auth/Signup';
 import Login from './components/auth/Login';
 import AuthService from './components/auth/AuthService';
 import NavBar from './components/contents/NavBar'
+import BarChart from './components/contents/BarChart';
+import Accordion from './components/contents/Accordion';
+import Competitions from './components/contents/Competitions';
+import Match from './components/contents/Match';
+// import ReactChartkick, { LineChart, PieChart } from 'react-chartkick'
+// import Chart from 'chart.js'
+// ReactChartkick.addAdapter(Chart)
+// var CanvasJSReact = require('./canvasjs.react');
+// var CanvasJS = CanvasJSReact.CanvasJS;
+// var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 class App extends Component {
-
   constructor(props) {
     super(props)
     this.state = { loggedInUser: null };
@@ -53,7 +62,7 @@ class App extends Component {
           {/* <Redirect to="/home"></Redirect> */}
           <div className="App">
             <header className="App-header">
-              <NavBar logout={this.logout}></NavBar>
+              <NavBar></NavBar>
               {/* <Switch>
                 <Route exact path="/contents" component={Contents}> </Route> 
               </Switch> */}
@@ -69,7 +78,13 @@ class App extends Component {
             <header className="App-header">
               <Switch>
                 <Route exact path='/signup' render={() => <Signup getUser={this.getUser} />} />
-                <Route exact path='/login' render={() => <Login getUser={this.getUser} />} />
+                <Route exact path='/' render={() => <Login getUser={this.getUser} />} />
+                <Route exact path='/competitions' render={() => <Competitions getUser={this.getUser} />} />
+                <Route exact path='/jornadas' render={() => <Accordion />} />
+                <Route exact path='/match' render={() => <Match /> } />
+                <Route exact path='/match' render={() => <Match /> } />
+                <Route exact path='/barchart' render={() => <BarChart /> } />
+} />
               </Switch>
             </header>
           </div>
