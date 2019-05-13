@@ -1,11 +1,12 @@
 require('dotenv').config();
 
 const mongoose = require("mongoose");
+const axios = require("axios");
 const Match = require("../models/Match");
 const Team = require("../models/Team");
-const axios = require("axios");
+var matches = []
 
-mongoose
+    mongoose
     //.connect('mongodb+srv://FS:ironhack@cluster0-ovrey.mongodb.net/test?retryWrites=true', {useNewUrlParser: true})
     .connect('mongodb://localhost:27017/Future-Score', { useNewUrlParser: true })
     .then(x => {
@@ -15,8 +16,6 @@ mongoose
         console.error('Error connecting to mongo', err)
     });   
 
-    var matches = []
-
     axios({
     url: 'https://api.football-data.org/v2/competitions/2014/matches',
     method: 'GET',
@@ -25,38 +24,31 @@ mongoose
         }
     })
     .then(res => {
-        res.data.matches.forEach(match => {
-            Team.find({name: match.homeTeam.name})
-            .select('_id')
+        console.log("Respuesta")
+        var promise = res.data.matches.map(match => {
+            return Team.find({name: match.homeTeam.name})
             .then(teamHome => {
                 var teamHome = teamHome[0]._id
-                Team.find({name: match.awayTeam.name})
-                .select('_id')
+                return Team.find({name: match.awayTeam.name})
                 .then(teamAway => {
-                    matches.push(
-                    {
+                   return  {
                         "id": match.id,
                         "status": match.status,
                         "matchday": match.matchday,
                         "score": match.score,
-                        "homeTeam": teamHome,
+                        "homeTeam": teamHome._id,
                         "awayTeam": teamAway[0]._id,
-                    })
-                    //console.log(matches)
-        Promise.resolve()
-        .then(() => 
-            Match.create(match)
-                .then((data) => {
-                 console.log(`${data} save`)
+                    }
                 })
-                .catch((err) => { 
-                    console.log(err) 
-                })
-            )
+            })
         })
+        Promise.all(promise)
+        .then((data)=>{
+                Match.insertMany(data)
+                .then((data) => {console.log("Guardado", data)})
+                .catch((err) => { console.log(err) })
         })
     })
-})
     .catch(err => {
         console.error(err);
     });
