@@ -94,16 +94,16 @@ const authRoutes = require('./routes/auth');
 app.use('/api/auth', authRoutes);
 
 const user = require('./routes/user');
-app.use('/user', user)
+app.use('/api/user', user)
 
 const matches = require('./routes/matches');
-app.use('/matches', matches);
+app.use('/api/matches', matches);
 
 const predictions = require('./routes/predictions');
-app.use('/predictions', predictions);
+app.use('/api/predictions', predictions);
 
 const teams = require('./routes/teams');
-app.use('/teams', teams);
+app.use('/api/teams', teams);
 
 app.use((req, res) => {
   res.sendFile(__dirname + "/public/index.html");
