@@ -62,7 +62,7 @@ class App extends Component {
           {/* <Redirect to="/home"></Redirect> */}
           <div className="App">
             <header className="App-header">
-              <NavBar></NavBar>
+              {/* <NavBar></NavBar> */}
               {/* <Switch>
                 <Route exact path="/contents" component={Contents}> </Route> 
               </Switch> */}
