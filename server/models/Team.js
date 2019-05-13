@@ -8,7 +8,7 @@ const TeamSchema = new Schema({
     tla: String,
     crestUrl: String,
     venue: String,
-    alpha: Number,
+    alfa: Number,
     beta: Number,
     nu1: Number,
     nu2: Number,

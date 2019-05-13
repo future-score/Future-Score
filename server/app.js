@@ -13,12 +13,12 @@ const MongoStore = require('connect-mongo')(session);
 const cors = require('cors');
 const flash = require('flash')
 
-const { DBURLA } = process.env;
+const { DBURL } = process.env;
 mongoose.Promise = Promise;
 mongoose
-  .connect(`${process.env.DBURLA}`, {useNewUrlParser: true})
+  .connect(`${process.env.DBURL}`, {useNewUrlParser: true})
   .then(() => {
-    console.log(`Connected to Mongo on ${DBURLA}`)
+    console.log(`Connected to Mongo on ${DBURL}`)
   }).catch(err => {
 
     console.error('Error connecting to mongo', err)
@@ -94,16 +94,16 @@ const authRoutes = require('./routes/auth');
 app.use('/api/auth', authRoutes);
 
 const user = require('./routes/user');
-app.use('/user', user)
+app.use('/api/user', user)
 
 const matches = require('./routes/matches');
-app.use('/', matches);
+app.use('/api/matches', matches);
 
 const predictions = require('./routes/predictions');
-app.use('/', predictions);
+app.use('/api/predictions', predictions);
 
 const teams = require('./routes/teams');
-app.use('/', teams);
+app.use('/api/teams', teams);
 
 app.use((req, res) => {
   res.sendFile(__dirname + "/public/index.html");

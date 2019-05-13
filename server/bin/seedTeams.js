@@ -4,7 +4,8 @@ const Team = require("../models/Team");
 const data = require("./TeamsData.json")
 
 mongoose
-  .connect('mongodb+srv://FS:ironhack@cluster0-ovrey.mongodb.net/test?retryWrites=true', {useNewUrlParser: true})
+  //.connect('mongodb+srv://FS:ironhack@cluster0-ovrey.mongodb.net/test?retryWrites=true', {useNewUrlParser: true})
+  .connect('mongodb://localhost:27017/Future-Score', {useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
