@@ -1,5 +1,8 @@
+require('dotenv').config();
+
 const mongoose = require("mongoose");
 const Match = require("../models/Match");
+const Team = require("../models/Team");
 const axios = require("axios");
 
 mongoose
@@ -10,44 +13,50 @@ mongoose
     })
     .catch(err => {
         console.error('Error connecting to mongo', err)
-    });
+    });   
 
-    let matches = []
+    var matches = []
 
-axios({
+    axios({
     url: 'https://api.football-data.org/v2/competitions/2014/matches',
     method: 'GET',
     headers: {
-        'X-Auth-Token': "2a949c5cca1f4b1d8bcbe8fe8a118b8e"
-    }
+        'X-Auth-Token': `${process.env.AuthTokenApi}`
+        }
     })
-    .then(response => {
-        matches = response.data.matches.map(match => {
-            return {
-                "id": match.id,
-                "status": match.status,
-                "matchday": match.matchday,
-                "score": match.score
-            }
-        })
-    // .then(response => {
-    //     scores = response.data.matches.score.map(score => {
-    //         return {
-    //             "winner": score.winner,
-    //         }
-    //     })
-    // })
+    .then(res => {
+        res.data.matches.forEach(match => {
+            Team.find({name: match.homeTeam.name})
+            .select('_id')
+            .then(teamHome => {
+                var teamHome = teamHome[0]._id
+                Team.find({name: match.awayTeam.name})
+                .select('_id')
+                .then(teamAway => {
+                    matches.push(
+                    {
+                        "id": match.id,
+                        "status": match.status,
+                        "matchday": match.matchday,
+                        "score": match.score,
+                        "homeTeam": teamHome,
+                        "awayTeam": teamAway[0]._id,
+                    })
+                    //console.log(matches)
         Promise.resolve()
         .then(() => 
-            Match.create(matches)
+            Match.create(match)
                 .then((data) => {
-                    console.log(`${data} save`)
+                 console.log(`${data} save`)
                 })
                 .catch((err) => { 
                     console.log(err) 
                 })
-        )
+            )
+        })
+        })
     })
+})
     .catch(err => {
         console.error(err);
     });
