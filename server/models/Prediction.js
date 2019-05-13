@@ -22,5 +22,5 @@ const PredictionSchema = new Schema({
     }
 });
 
-const Prediction = mongoose.model('Match', PredictionSchema);
+const Prediction = mongoose.model('Prediction', PredictionSchema);
 module.exports = Prediction;

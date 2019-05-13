@@ -1,12 +1,14 @@
 const express = require('express');
 const router  = express.Router();
-const Axios = require('axios')
+const Match = require('../models/Match');
 
 //match
-router.get('/', (req, res, next) => {
+router.get('/:id', (req, res, next) => {
   let id = req.params.id;
 
-  match.find(id)
+  Match.find({id: id})
+  .populate('homeTeam')
+  .populate('awayTeam')
   .then(match=>{
     res.json(match);
   })

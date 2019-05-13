@@ -31,7 +31,7 @@ var matches = []
                 var teamHome = teamHome[0]._id
                 return Team.find({name: match.awayTeam.name})
                 .then(teamAway => {
-                   return  {
+                   return {
                         "id": match.id,
                         "status": match.status,
                         "matchday": match.matchday,

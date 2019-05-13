@@ -7,9 +7,7 @@ router.get('/:num', (req, res, next) => {
   let num = req.params.num;
 
   Matchday.find({matchday: num})
-  
-  .populate(['matches'])
-  //.exec(callback)
+  .populate('matches')
   .then(matchday=>{
     res.json(matchday)
     console.log(matchday)
