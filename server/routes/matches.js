@@ -10,6 +10,7 @@ router.get('/:id', (req, res, next) => {
   .populate('homeTeam')
   .populate('awayTeam')
   .then(match=>{
+    console.log(match)
     res.json(match);
   })
   .catch((err)=>{
