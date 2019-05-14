@@ -105,6 +105,9 @@ app.use('/api/predictions', predictions);
 const teams = require('./routes/teams');
 app.use('/api/teams', teams);
 
+const mathModel = require('./routes/mathModel');
+app.use('/api/math', mathModel);
+
 app.use((req, res) => {
   res.sendFile(__dirname + "/public/index.html");
 });

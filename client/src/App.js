@@ -80,10 +80,8 @@ class App extends Component {
                 <Route exact path='/' render={() => <Login getUser={this.getUser} />} />
                 <Route exact path='/competitions' render={() => <Competitions getUser={this.getUser} />} />
                 <Route exact path='/jornadas' render={() => <Accordion />} />
-                <Route exact path='/match' render={() => <Match /> } />
-                <Route exact path='/match' render={() => <Match /> } />
+                <Route exact path='/match/:id' component={Match} />
                 <Route exact path='/barchart' render={() => <BarChart /> } />
-} />
               </Switch>
             </header>
           </div>
