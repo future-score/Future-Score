@@ -9,8 +9,10 @@ class Predservice {
 }
 
 getPrediction = (data) => {
-    return this.service.get(`/`, {data})
-      .then(response => response)
+    return this.service.post(`/`, {data})
+      .then(response => {
+        return response.data
+      })
     }
 }
 

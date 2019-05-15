@@ -22,7 +22,7 @@ export default class Match extends Component {
       display: false,
       displayAway: false,
       show: false,
-      chartValues: [["1", 32], ["X", 46], ["2", 28]]
+      numberData: [],
     };
     this.services = new DBservice()
     this.predServices = new Predservice()
@@ -56,9 +56,10 @@ export default class Match extends Component {
     ]
     this.predServices.getPrediction(consultData)
     .then(data=>{
+      let numberData = data.split(", ").map((n) => parseFloat(n))
            this.setState({
              ...this.state,
-             prediction : data
+             numberData: numberData
             })
         })
   }
@@ -72,7 +73,6 @@ export default class Match extends Component {
 
 	backToBegin = () =>{
 		setTimeout(()=>{
-			console.log("llega")
 			const {show} = {...this.state};
 			this.setState({show: !show})
 		},3000) 
@@ -94,14 +94,6 @@ export default class Match extends Component {
     })
   }
 
-  testChart() {
-    this.setState(
-      {
-        ...this.state,
-        chartValues: [["1", 12], ["X", 46], ["2", 128]]
-      }
-    )
-  }
   render() {
     if (Object.entries(this.state.data).length > 0) {
     return (
@@ -145,7 +137,7 @@ export default class Match extends Component {
       ]
     }
   }
-} legend={false} stacked={false} data={this.state.chartValues} /> 
+} legend={false} stacked={false} data={[["1", this.state.numberData[0]], ["X", this.state.numberData[1]], ["2", this.state.numberData[2]]]} /> 
 
  <div className="button-save">
   <button onClick={() => this.testChart()}>Dani</button>

@@ -5,17 +5,27 @@ const express = require('express');
 const router  = express.Router();
 const axios = require("axios");
 
-router.get('/:gamma/:alphahome/:betahome/:alphaaway/:betaaway/:nu1home/:nu2away/:ro', (req, res, next) => {
-
-    axios.get(`https://future-score19.herokuapp.com/api/?gamma=${req.params.gamma}&alphahome=${req.params.alphahome}&betahome=${req.params.betahome}&alphaaway=${req.params.alphaaway}&betaaway=${req.params.betaaway}&nu1home=${req.params.nu1home}&nu2away=${req.params.nu2away}&ro=${req.params.ro}`)
+router.post('/', (req, res, next) => {
+    const data = req.body.data
+    axios.get(`http://yonrod.pythonanywhere.com/?gamma=${data[0]}&alfahome=${data[1]}&betahome=${data[2]}&alfaaway=${data[3]}&betaaway=${data[4]}&nu1home=${data[5]}&nu2away=${data[6]}&ro=${data[7]}`)
     .then(response => {
-        return res.json({
-            message: response.data
-        })
+        res.json(response.data)
     })
     .catch((error) => {
         console.log("error")
     })
 })
+
+// router.get(‘/’, (req, res, next) => {
+//     axios.get(“http://yonrod.pythonanywhere.com/?gamma=0.4&alfahome=1“)
+//     .then(data => {
+//         res.json({data: data.data.split(“,”).map(d => d.trim())})
+//       })
+//     .catch((error) => {
+//         console.log("error")
+//     })
+// })
+
+// :gamma/:alfahome/:betahome/:alfaaway/:betaaway/:nu1home/:nu2away/:ro
 
 module.exports = router;
