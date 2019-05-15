@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import Chart from 'chart.js';
 import ReactChartkick, { ColumnChart } from 'react-chartkick';
 import NavBar from './NavBar'
+import DBservice from '../../services/DBservice'
+import Predservice from '../../services/Predservice'
 import './cssContents/Match.css'
 // import BarChart from './BarChart';
 import HomeSliders from './HomeSliders'
@@ -177,3 +179,4 @@ export default class Match extends Component {
 }else return null
   }
 }
+

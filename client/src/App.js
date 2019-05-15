@@ -6,7 +6,7 @@ import Login from './components/auth/Login';
 import AuthService from './components/auth/AuthService';
 import NavBar from './components/contents/NavBar'
 import BarChart from './components/contents/BarChart';
-import Accordion from './components/contents/Accordion';
+// import Accordion from './components/contents/Accordion';
 import Competitions from './components/contents/Competitions';
 import Match from './components/contents/Match';
 import HomeSliders from './components/contents/HomeSliders';
@@ -14,6 +14,8 @@ import AwaySliders from './components/contents/AwaySliders';
 import Profile from './components/contents/Profile';
 import SearchBar from './components/contents/SearchBar';
 import Forecasts from './components/contents/Forecasts';
+import MatchDays from './components/contents/MatchDays';
+
 // import ReactChartkick, { LineChart, PieChart } from 'react-chartkick'
 // import Chart from 'chart.js'
 // ReactChartkick.addAdapter(Chart)
@@ -84,9 +86,8 @@ class App extends Component {
                 <Route exact path='/signup' render={() => <Signup getUser={this.getUser} />} />
                 <Route exact path='/' render={() => <Login getUser={this.getUser} />} />
                 <Route exact path='/competitions' render={() => <Competitions getUser={this.getUser} />} />
-                <Route exact path='/jornadas' render={() => <Accordion />} />
-                <Route exact path='/match' render={() => <Match /> } />
-                <Route exact path='/match' render={() => <Match /> } />
+                <Route exact path='/matchdays' render={() => <MatchDays />} />
+                <Route exact path='/match/:id' component={Match} />
                 <Route exact path='/barchart' render={() => <BarChart /> } />
                 <Route exact path='/sliders' render={() => <HomeSliders />} />
                 <Route exact path='/asliders' render={() => <AwaySliders />} />
