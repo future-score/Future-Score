@@ -94,7 +94,7 @@ label {
 .zmdi-lock:before {
     content: '\f191';
 }
-input {
+.signup-input {
     width: 100%;
     display: block;
     border: none;

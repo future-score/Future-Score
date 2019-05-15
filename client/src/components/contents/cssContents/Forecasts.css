@@ -1,0 +1,50 @@
+#personal-image {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#user-user {
+  border-radius: 50%;
+}
+
+.forecast-title {
+  margin-top: 50px;
+  border: 1px white solid;
+}
+
+.forecast-container {
+  border: 1px solid white;
+  margin: 0 20px;
+}
+
+.match-forecast {
+  border: 1px solid white;
+  margin: 0 auto;
+  /* border: 1px solid white; */
+  margin-top: 100px;
+  /* height: 80px; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* border: 1px solid white; */
+  /* margin-top: 100px; */
+  /* height: 50vh;  */
+}
+
+.home-team {
+  border: 1px solid white;
+  justify-content: space-around;
+}
+
+.away-team {
+  border: 1px solid white;
+}
+
+.prediction-container {
+  border: 1px solid white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

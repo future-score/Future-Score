@@ -66,7 +66,7 @@ class Signup extends Component {
                   <label>
                     <i className="zmdi zmdi-account material-icons-name" />
                   </label>
-                  <input
+                  <input className="signup-input"
                     type="text"
                     name="username"
                     value={this.state.username}
@@ -84,7 +84,7 @@ class Signup extends Component {
                   <label>
                     <i className="zmdi zmdi-lock" />
                   </label>
-                  <input
+                  <input className="signup-input"
                     type="password"
                     name="password"
                     value={this.state.password}
@@ -94,7 +94,7 @@ class Signup extends Component {
                   />
                 </div>
                 <div className="form-group form-button">
-                  <input
+                  <input className="signup-input"
                     type="submit"
                     name="signup"
                     id="signup"

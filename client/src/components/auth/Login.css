@@ -103,7 +103,7 @@ body {
   .zmdi-lock:before {
     content: '\f191';
   }
-  input {
+  .login-input {
     width: 100%;
     display: block;
     border: none;
@@ -113,10 +113,11 @@ body {
     outline: none;
     -webkit-appearance: unset !important;
     background-color: #1B1C1E;
+    color: grey;
     -webkit-rtl-ordering: logical;
     cursor: text;
     text-rendering: auto;
-    color: initial;
+    /* color: initial; */
     letter-spacing: normal;
     word-spacing: normal;
     text-transform: none;

@@ -1,0 +1,14 @@
+.button-save {
+  text-align: center;
+
+}
+
+.button-save > button {
+  background: #189574;
+  color: whitesmoke;
+  border-bottom: none;
+  padding: 15px 39px;
+  -webkit-border-radius: 5px;
+  margin-top: 25px;
+  cursor: pointer;
+}

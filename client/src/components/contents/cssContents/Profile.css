@@ -1,0 +1,70 @@
+#personal-view {
+  border: whitesmoke solid 2px;
+  max-width: 40vw;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+#personal-image {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.personalItems > a {
+  float:left;
+}
+
+.upload {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.upload-button {
+  border: 1px solid grey;
+  border-radius: 20px;
+  padding: 10px;
+}
+
+.profile-title {
+margin-top: 50px;
+}
+
+.bot-1 {
+  margin-bottom: 20px;
+  color: white;
+}
+
+#birth-div {
+  margin-top: 0;
+}
+#user-user {
+  border-radius: 50%;
+}
+
+.personalItems > div{
+  float: left;
+}
+ .theButtons {
+  float: left;
+  display: inline;
+} 
+
+#editButton {
+  color: white;
+}
+
+.a-remove-button {
+  text-decoration: none;
+  color: white;
+} 
+
+/* .FileUpload {
+  border: 1px solid white;
+  margin-top: 150px;
+} */

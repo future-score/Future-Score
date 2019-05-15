@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+// import './App.css';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import Signup from './components/auth/Signup';
 import Login from './components/auth/Login';
@@ -9,6 +9,11 @@ import BarChart from './components/contents/BarChart';
 import Accordion from './components/contents/Accordion';
 import Competitions from './components/contents/Competitions';
 import Match from './components/contents/Match';
+import HomeSliders from './components/contents/HomeSliders';
+import AwaySliders from './components/contents/AwaySliders';
+import Profile from './components/contents/Profile';
+import SearchBar from './components/contents/SearchBar';
+import Forecasts from './components/contents/Forecasts';
 // import ReactChartkick, { LineChart, PieChart } from 'react-chartkick'
 // import Chart from 'chart.js'
 // ReactChartkick.addAdapter(Chart)
@@ -62,7 +67,7 @@ class App extends Component {
           {/* <Redirect to="/home"></Redirect> */}
           <div className="App">
             <header className="App-header">
-<Competitions></Competitions>              {/* <Switch>
+              <Competitions></Competitions>              {/* <Switch>
                 <Route exact path="/contents" component={Contents}> </Route> 
               </Switch> */}
             </header>
@@ -83,7 +88,11 @@ class App extends Component {
                 <Route exact path='/match' render={() => <Match /> } />
                 <Route exact path='/match' render={() => <Match /> } />
                 <Route exact path='/barchart' render={() => <BarChart /> } />
-} />
+                <Route exact path='/sliders' render={() => <HomeSliders />} />
+                <Route exact path='/asliders' render={() => <AwaySliders />} />
+                <Route exact path ='/profile' render={() => <Profile />} />
+                <Route exact path='/searchbar' render={() => <SearchBar />} />
+                <Route exact path='/forecasts' render={() => <Forecasts />} />
               </Switch>
             </header>
           </div>
