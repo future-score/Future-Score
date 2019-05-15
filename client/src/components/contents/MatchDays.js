@@ -12,8 +12,10 @@ export default class MatchaDays extends Component {
         super()
         this.state = {
             data: [],
-            uniqueItems: [],
-            openMatchDay: 0
+            // uniqueItems: [],
+            // openMatchDay: 0,
+            // filteredMatchDay:[]
+            competition: {}
         }
         this.services = new DBservice()
     }
@@ -25,40 +27,98 @@ export default class MatchaDays extends Component {
                     ...this.state,
                     data
                 }, () => {
-                    this.mapMatchday()
+                    this.getMatchesMatchDays()
                 })
             })
     }
 
-    mapMatchday = () => {
-        Object.values(this.state.data).forEach(num => {
-            matchdays.push(num.matchday)
-            uniqueItems = [...new Set(matchdays)];
 
-            this.setState({ 
-                ...this.state, 
-                uniqueItems: uniqueItems 
-            })
+    getMatchesMatchDays = () => {
+        var competition = {}
+
+        this.state.data.forEach(match => {
+            if (!competition.hasOwnProperty(match.matchday)) {
+                competition[match.matchday] = []
+            }
+
+            competition[match.matchday].push(match)
+        })
+        this.setState({
+            ...this.state,
+            competition: competition
         })
     }
 
-    componentDidMount() {
+    // console.log(obj)
+
+    // for (var key in obj) {
+    // // console.log(key, obj)
+    // console.log("estas viendo el dia " + key, obj[key])
+    // }
+
+
+    // mapMatchday = () => {
+    //     Object.values(this.state.data).forEach(num => {
+    //         matchdays.push(num.matchday)
+    //         uniqueItems = [...new Set(matchdays)];
+
+    //         this.setState({ 
+    //             ...this.state, 
+    //             uniqueItems: uniqueItems 
+    //         })
+    //     })
+    // }
+
+    // matchDayTransform= ()=>{
+    //     console.log(this.state.data)
+    //     let pr = Array(this.state.uniqueItems.length).fill([])
+    //     this.state.data.map((oneMatch,idx)=>{   
+    //         pr[oneMatch.matchday-1].push(oneMatch)
+    //     })
+    //     console.log(pr)
+    // }
+
+    // journyFilter=()=>{
+    //     const oneJourney = this.state.data.filter(match=>{
+    //         return match.matchday == this.state.openMatchDay
+    //     })
+    //     // console.log(oneJourney)
+    //     this.setState({
+    //         ...this.state,
+    //         filteredMatchDay: oneJourney})
+    // }
+
+    componentDidMount = () => {
         this.getMatchDays()
     }
 
+    // journySelector=(journy)=>{
+    //     this.setState({
+    //         ...this.state, 
+    //         openMatchDay:journy},
+    //         ()=>{this.journyFilter()
+    //     })
+    // }
+
 
     render() {
+        const toShow = []
+
+        for (var key in this.state.competition) {
+            toShow.push(<BoxMatchDays key={key} data={this.state.competition[key]} />)
+        }
+
+        // for (var key in competition)
+        //     let matchdayNum = competition[key]
+        //     console.log(key, obj)
+        //     console.log("estas viendo el dia " + key, obj[key])
+
         return (
             <div>
                 <NavBar></NavBar>
-                    {this.state.uniqueItems.map((matchday, idx) => {
-                        return (
-                            <BoxMatchDays dataMatches={this.state.data}>
-                                key = {idx}
-                                num = {matchday.num}
-                            </BoxMatchDays>
-                        )
-                    })}
+                <div>
+                    {toShow}
+                </div>
             </div>
         )
     }

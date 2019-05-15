@@ -9,7 +9,7 @@ export default class Match extends Component {
     super(props)
     this.state = {
       data: {},
-      prediction : null
+      prediction: null
     }
     this.services = new DBservice()
     this.predServices = new Predservice()

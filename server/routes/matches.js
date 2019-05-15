@@ -6,6 +6,8 @@ const Match = require('../models/Match');
 router.get('/all', (req, res, next) => {
 
   Match.find()
+  .populate('homeTeam')
+  .populate('awayTeam')
   .then(match=>{
     res.json(match);
   })

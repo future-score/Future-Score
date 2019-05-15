@@ -73,7 +73,7 @@ input[type="checkbox"]:checked ~ .accordion__arrow::after {
 
 .vs-container {
   position: relative;
-  max-height: 200px;
+  /* max-height: 200px; */
   width: 100%;
   margin: 0;
   opacity: 1;

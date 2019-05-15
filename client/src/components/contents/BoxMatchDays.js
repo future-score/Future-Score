@@ -8,29 +8,37 @@ export default class BoxMatchDays extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            data: []
+            data: this.props.data,
         }
         this.services = new DBservice()
     }
 
-    getMatches = () => {
-        return this.services.getAllMatches()
-            .then(data => {
-                this.setState({
-                    ...this.state,
-                    data
-                })
-            })
-    }
+    // colapse=()=>{
+    //     this.setState({...this.state,num:this.props.num})
+    // }
 
-    componentDidMount() {
-        this.getMatches()
-    }
+    // getMatches = () => {
+    //     return this.services.getAllMatches()
+    //         .then(data => {
+    //             this.setState({
+    //                 ...this.state,
+    //                 data
+    //             })
+    //         })
+    // }
 
+    // componentDidMount() {
+    //     console.log(this.props.dataMatches)
+    // }
 
 
     render() {
+        // console.log(this.props)
         return (
+            // <div style={{color: "white"}}>
+            //     {this.props.data.map(match => <div>{match.homeTeam.name}</div>)}
+            //     xxxxxxxx
+            // </div>
             <div className="container">
                 <ul className="accordion">
                     <li className="accordion__item">
@@ -38,19 +46,15 @@ export default class BoxMatchDays extends Component {
                         <i className="accordion__arrow"></i>
                         <h2 className="accordion__title">Jornada {this.props.num}</h2>
                         <div className="vs-container">
-                            <div className="segunda">
-                                    {this.props.dataMatches.map((team, idx) => {
-                                        return (
-                                            <MatchAccordion>
-                                                key = {idx}
-                                                homeTeam.name = {team.homeTeam.name}
-                                                homeTeam.createUrl = {team.homeTeam.createUrl}
-                                                awayTeam.name = {team.awayTeam.name}
-                                                awayTeam.createUrl = {team.awayTeam.createUrl}
-                                            </MatchAccordion>
-                                        )
-                                    })}
-                            </div>
+                                {this.state.data.map(match=>{
+                                    return (
+                            // <div className="segunda">
+                                        <MatchAccordion data={match}/>
+                            // </div>
+                                    )})
+                                })
+                                    
+                                }
                         </div>
                     </li>
                 </ul>
@@ -58,3 +62,17 @@ export default class BoxMatchDays extends Component {
         )
     }
 }
+
+
+// {this.props.filteredMatchDay.map((team, idx) => {
+//     return (
+//         <p>{team.homeTeam.name}</p>
+//         // <MatchAccordion dataMatches={this.props.dataMaches}>
+//             // key = {idx}
+//             // <p>{team.hometeam.name}</p> */}
+//             /* homeTeam.createUrl = {team.homeTeam.createUrl}
+//             awayTeam.name = {team.awayTeam.name}
+//             awayTeam.createUrl = {team.awayTeam.createUrl} */
+//         // </MatchAccordion>
+//     )
+// })}
