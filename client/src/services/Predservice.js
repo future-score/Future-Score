@@ -9,10 +9,9 @@ class Predservice {
 }
 
 getPrediction = (data) => {
-    return this.service.post(`/`, data)
+    return this.service.get(`/`, {data})
       .then(response => response)
     }
-
 }
 
-export default Predservice
+export default Predservice;

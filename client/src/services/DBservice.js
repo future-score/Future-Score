@@ -9,7 +9,7 @@ class DBservice {
 }
 
 getAllMatches = () => {
-    return this.service.get(`/matches`)
+    return this.service.get(`matches/all`)
       .then(response => response.data)
     }
 

@@ -1,55 +1,65 @@
 import React, { Component } from 'react';
 import "./cssContents/Accordion.css";
-import DBservice from '../../services/DBservice'
+import DBservice from '../../services/DBservice';
 import NavBar from './NavBar';
+import BoxMatchDays from './BoxMatchDays';
+
+let matchdays = []
+let uniqueItems = undefined
 
 export default class MatchaDays extends Component {
-  constructor() {
-    super()
-    this.state = {
-      data: []
+    constructor() {
+        super()
+        this.state = {
+            data: [],
+            uniqueItems: [],
+            openMatchDay: 0
+        }
+        this.services = new DBservice()
     }
-    this.services = new DBservice()
-  }
 
-  getMatchDays = () => {
-    return this.services.getAllMatches()
-        .then(data=>{
-          
-           this.setState({
+    getMatchDays = () => {
+        return this.services.getAllMatches()
+            .then(data => {
+                this.setState({
+                    ...this.state,
+                    data
+                }, () => {
+                    this.mapMatchday()
+                })
+            })
+    }
 
-              data
+    mapMatchday = () => {
+        Object.values(this.state.data).forEach(num => {
+            matchdays.push(num.matchday)
+            uniqueItems = [...new Set(matchdays)];
+
+            this.setState({ 
+                ...this.state, 
+                uniqueItems: uniqueItems 
             })
         })
-  }
+    }
 
-  componentDidMount() {
-    this.getMatchDays()
-  }
+    componentDidMount() {
+        this.getMatchDays()
+    }
 
 
-  render() {
-    return (
-    <div className="container">
-          <NavBar></NavBar>
-      <ul className="accordion">
-         <li className="accordion__item">
-            <input type="checkbox" defaultChecked/>
-            <i className="accordion__arrow"></i>
-            <h2 className="accordion__title">Jornada 1</h2>
-            <div className="vs-container">
-                <div className="segunda">
-                      <div className="undostres">
-                          <img className="segunda-image"src="https://www.unionrayo.es/wp-content/uploads/2018/08/Atletico-de-Madrid.png" width= "50px" alt=""/>
-                      </div>
-                      <div className="premier">
-                          <img className="premier-image" src="http://as00.epimg.net/img/comunes/fotos/fichas/equipos/large/253.png" width= "50px" alt=""/>
-                      </div>
-                    </div>
-              </div>
-          </li>
-        </ul>
-      </div>
-    )
-  }
+    render() {
+        return (
+            <div>
+                <NavBar></NavBar>
+                    {this.state.uniqueItems.map((matchday, idx) => {
+                        return (
+                            <BoxMatchDays dataMatches={this.state.data}>
+                                key = {idx}
+                                num = {matchday.num}
+                            </BoxMatchDays>
+                        )
+                    })}
+            </div>
+        )
+    }
 }

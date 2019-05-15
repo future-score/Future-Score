@@ -4,9 +4,8 @@ const Match = require('../models/Match');
 
 //match
 router.get('/all', (req, res, next) => {
-  let id = req.params.id;
 
-  Match.find({id: id})
+  Match.find()
   .then(match=>{
     res.json(match);
   })
