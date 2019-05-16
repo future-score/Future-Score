@@ -48,8 +48,6 @@ class App extends Component {
       })
   }
 
-  
-
 //   fetchUser = () => {
 //       //utilizamos el método loggedin para cualquier momento que deseemos obtener la información del usuario quede guardada en el state de app
 //       this.service.loggedin()
@@ -138,9 +136,9 @@ componentDidMount(){
     if (this.state.loggedInUser) {
       return (
         <React.Fragment>
-        <div>
-          <NavBar></NavBar>
-        </div>
+        {/* <div>
+          <NavBar user={this.state.loggedInUser}></NavBar>
+        </div> */}
         <div className="App">
             <Switch>
             <Route exact path='/signup' render={() => <Signup getUser={this.getUser} />} />
