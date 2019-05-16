@@ -66,18 +66,33 @@ export default class Match extends Component {
   }
 
   getSlidersHome = (e) => {
-    console.log(parseFloat(e.homeTeamGamma))
- 
     this.setState({
       ...this.state,
       data: {
         ...this.state.data,
           homeTeam:{
             ...this.state.data.homeTeam,
-            gamma: parseFloat(e.homeTeamGamma),
+          gamma: parseFloat(e.homeTeamGamma),
           alfa: parseFloat(e.homeTeamAlfa),
           beta: parseFloat(e.homeTeamBeta),
           nu1: parseFloat(e.homeTeamNu1)
+            }          
+          }    
+    },()=>{
+      this.getPrediction()
+    })
+  }
+
+  getSlidersAway = (e) => {
+    this.setState({
+      ...this.state,
+      data: {
+        ...this.state.data,
+          awayTeam:{
+            ...this.state.data.awayTeam,
+          alfa: parseFloat(e.awayTeamAlfa),
+          beta: parseFloat(e.awayTeamBeta),
+          nu2: parseFloat(e.awayTeamNu2)
             }          
           }    
     },()=>{
@@ -177,13 +192,13 @@ export default class Match extends Component {
       </div>     
             {this.state.show ? null :
               <div>
-                {this.state.display && <HomeSliders data={this.state.data} getSliders={this.getSlidersHome}/>}
+                {this.state.display && <HomeSliders data={this.state.data} getSlidersHome={this.getSlidersHome}/>}
               </div>
             }
 
               {this.state.show ? null :
               <div>
-                {this.state.displayAway && <AwaySliders />}
+                {this.state.displayAway && <AwaySliders data={this.state.data} getSlidersAway={this.getSlidersAway}/>}
               </div>
             }
      

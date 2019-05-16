@@ -15,7 +15,7 @@ export default class HomeSliders extends Component {
 
   sendSliders = () => {
     // console.log(this.state)
-    this.props.getSliders(this.state)
+    this.props.getSlidersHome(this.state)
   }
 
   handleInput = (e) => {
