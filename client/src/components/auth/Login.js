@@ -23,7 +23,6 @@ class Login extends Component {
           password: password,
           logged: true
         });
-
         this.props.getUser(response);
       })
       .catch(error => {

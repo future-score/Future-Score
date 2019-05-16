@@ -4,24 +4,28 @@ class AuthService {
   constructor() {
     this.service = axios.create({
       baseURL: `${process.env.REACT_APP_URL}/`,
-    //   withCredentials: true
+      withCredentials: true
     });
   }
   
   signup = (username, password) => {
-    console.log(process.env)
     return this.service.post('auth/signup', {username, password})
     .then(response => response.data)
   }
 
   login = (username, password) => {
     return this.service.post('auth/login', {username, password})
-    .then(response => response.data)
+    .then(response => {
+      return response.data})
   }
 
   loggedin = () => {
+    console.log("Entra")
     return this.service.get('auth/currentuser',)
-    .then(response => response.data)
+    .then(response => {
+      console.log(response)
+      return response.data
+    })
   }
 
   logout = () => {

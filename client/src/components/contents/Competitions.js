@@ -3,13 +3,31 @@ import NavBar from './NavBar';
 import './cssContents/Competitions.css'
 
 export default class Competitions extends Component {
+  constructor(props) {
+    super (props)
+    this.state = {
+      data: {},
+      user: this.props.user
+    }
+
+  }
+
+  componentWillReceiveProps=(nextProps)=>{
+    console.log(nextProps)
+  }
+
+  // getUser=()=>{
+  //   this.props.getUser()
+  // }
+
   render() {
+    if(this.state.user!==null){
+
     return (
       <div>
         <NavBar/>
-        <p>Welcome User</p>
         <div className="competitions">
-          <h2>Competitions</h2>
+          <h2>¡Hola {this.state.user.username}!</h2>
             <div className="liga">
                <div className="santander">
                  <img className="liga-image" src="/images/ligasantander.png" width= "150px" alt="" />
@@ -29,5 +47,10 @@ export default class Competitions extends Component {
   </div>
       </div>
     )
+  }else{
+    return (
+      <h1>LOADING...</h1>
+    )
   }
+}
 }

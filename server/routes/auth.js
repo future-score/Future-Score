@@ -4,13 +4,11 @@ const bcrypt = require('bcrypt');
 const User = require('../models/User');
 const passport = require('passport');
 
-
 const login = (req, user) => {
   return new Promise((resolve,reject) => {
     req.login(user, err => {
-      console.log('req.login ')
-      console.log(user)
-
+      
+      
       
       if(err) {
         reject(new Error('Something went wrong'))
@@ -27,9 +25,7 @@ router.post('/signup', (req, res, next) => {
 
   const {username, password} = req.body;
 
-  console.log('username', username)
-  console.log('password', password)
-
+  
   // Check for non empty user or password
   if (!username || !password){
     next(new Error('You must provide valid credentials'));
@@ -55,22 +51,23 @@ router.post('/signup', (req, res, next) => {
 
 router.post('/login', (req, res, next) => {
   passport.authenticate('local', (err, theUser, failureDetails) => {
-    
     // Check for errors
     if (err) next(new Error('Something went wrong')); 
     if (!theUser) next(failureDetails)
 
     // Return user and logged in
-    login(req, theUser).then(user => res.status(200).json(req.user));
+    login(req, theUser).then(user => {
+      console.log(user)
+      return res.status(200).json(user)});
 
   })(req, res, next);
 });
 
 
 router.get('/currentuser', (req,res,next) => {
-  if(req.user){
-    res.status(200).json(req.user);
-  }else{
+    if(req.isAuthenticated()){
+      res.status(200).json(req.user);
+    }else{
     res.status(500).json({
       error:'Not logged in'
     })

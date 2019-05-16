@@ -139,9 +139,9 @@ export default class Match extends Component {
   }
 } legend={false} stacked={false} data={[["1", this.state.numberData[0]], ["X", this.state.numberData[1]], ["2", this.state.numberData[2]]]} /> 
 
- <div className="button-save">
+ {/* <div className="button-save">
   <button onClick={() => this.testChart()}>Dani</button>
-</div> 
+</div>  */}
   <div className="button-save">
     <button  onClick={this.saveButton}>Save</button>
   </div>

@@ -4,9 +4,9 @@ const Prediction = require('../models/Prediction')
 
 //newPrediction
 router.post('/new', (req, res, next) => {  
-    const {predictionId, status, homeTeam, awayTeam} = req.body;
+    const {numberData, match} = req.body;
   
-    const newPrediction = new Prediction({predictionId, status, homeTeam, awayTeam})
+    const newPrediction = new Prediction({numberData, match})
     newPrediction.save()
       .then(prediction => {
         res.json(prediction);
@@ -17,30 +17,30 @@ router.post('/new', (req, res, next) => {
 });
   
 //delete prediction
-router.delete('/delete/:id', (req, res, next) => {
-    let id = req.params.id;
+// router.delete('/delete/:id', (req, res, next) => {
+//     let id = req.params.id;
       
-    Prediction.findByIdAndRemove(id)
-      .then(prediction=>{
-        res.json(prediction);
-      })
-      .catch((err)=>{
-        console.log(err);
-      })
-});
+//     Prediction.findByIdAndRemove(id)
+//       .then(prediction=>{
+//         res.json(prediction);
+//       })
+//       .catch((err)=>{
+//         console.log(err);
+//       })
+// });
   
 //update prediction
-router.put('/update/:id' , (req, res, next) =>{
-    let id = req.params.id;
-    const {predictionId, status, homeTeam, awayTeam} = req.body;
+// router.put('/update/:id' , (req, res, next) =>{
+//     let id = req.params.id;
+//     const {predictionId, status, homeTeam, awayTeam} = req.body;
       
-    Prediction.findByIdAndUpdate(id, req.body , {new: true})
-      .then((prediction)=>{
-        res.json(prediction);
-      })
-      .catch((err)=>{
-        console.log(err);
-      })
-});
+//     Prediction.findByIdAndUpdate(id, req.body , {new: true})
+//       .then((prediction)=>{
+//         res.json(prediction);
+//       })
+//       .catch((err)=>{
+//         console.log(err);
+//       })
+// });
 
 module.exports = router;

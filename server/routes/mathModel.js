@@ -16,16 +16,4 @@ router.post('/', (req, res, next) => {
     })
 })
 
-// router.get(‘/’, (req, res, next) => {
-//     axios.get(“http://yonrod.pythonanywhere.com/?gamma=0.4&alfahome=1“)
-//     .then(data => {
-//         res.json({data: data.data.split(“,”).map(d => d.trim())})
-//       })
-//     .catch((error) => {
-//         console.log("error")
-//     })
-// })
-
-// :gamma/:alfahome/:betahome/:alfaaway/:betaaway/:nu1home/:nu2away/:ro
-
 module.exports = router;
