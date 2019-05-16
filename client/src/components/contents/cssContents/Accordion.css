@@ -89,21 +89,43 @@ input[type="checkbox"]:checked ~ .vs-container{
   opacity: 0;
 }
 
-.liga, .segunda {
+.match-day-container { 
+  border: 1px solid white;
   margin: 0 auto;
   /* height: 80px; */
-  display: flex;
-  justify-content: space-between;
+  display: flex; 
+  justify-content: space-between; 
   align-items: center;
   /* border: 1px solid white; */
   /* margin-top: 100px; */
   /* height: 50vh;  */
-}
+ }
+ .home-team-match {
+   border: 1px solid white;
+   width: 40%;
+   display: flex;
+   /* flex-wrap: wrap; */
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+ }
 
-.santander, .champions, .undostres, .premier {
+ .away-team-match {
+  border: 1px solid white;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+ }
+
+ .team-name {
+   text-align: center;
+ }
+/* .santander, .champions, .undostres, .premier { */
   /* border: 1px solid white; */
-  background-color:	#464749;
+  /* background-color:	#464749;
   border-radius: 10px;
   margin-left: 10px;
   margin-right: 10px;
-}
+} */

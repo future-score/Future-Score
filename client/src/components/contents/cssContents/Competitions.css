@@ -1,6 +1,6 @@
 body {
   margin: 0 auto;
-  background-color: #19231B;
+  /* background-color: #19231B; */
   /* overflow-y:hidden; */
   }
   .welcome {
@@ -15,36 +15,46 @@ body {
   
   .competitions {
     /* border: 1px solid white; */
-    margin-top: 100px;
+    margin-top: 50px;
     box-sizing: border-box;
   }
-  
+  .message-user {
+    margin-top: 150px;
+    border: 1px solid white;
+  }
+
   h2 {
     color: white;
     text-align: center;
     font-size: 30px;
   }
   
-  .liga, .segunda {
-    margin: 0 auto;
+  .competition-container {
     /* height: 80px; */
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: center;  
+    margin-top: 50px;
     /* margin-top: 100px; */
     /* height: 50vh;  */
   }
   
-  
-  
-  .santander, .champions, .undostres, .premier {
+  .santander, .undostres {
     /* border: 1px solid white; */
     background-color:	#464749;
     border-radius: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 40px;
+  }
+
+  .champions, .premier {
+    background-color:	#464749;
+    border-radius: 10px;
+    margin-right: 40px;
   }
   
+  .champions-image, .segunda-image, .premier-image {
+    opacity: 0.3;
+  }
   /* .liga-image, .champions-image, .segunda-image, .premier-image {
     filter: hue-rotate(220º) saturate(1.9) brightness(69.6%);
   } */

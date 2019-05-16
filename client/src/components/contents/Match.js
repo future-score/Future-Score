@@ -10,6 +10,7 @@ import HomeSliders from './HomeSliders'
 import GreenTick from './GreenTick';
 import AwaySliders from './AwaySliders';
 import './cssContents/BarChart.css';
+import '../contents/cssContents/Match.css'
 ReactChartkick.addAdapter(Chart);
 
 
@@ -64,6 +65,26 @@ export default class Match extends Component {
         })
   }
 
+  getSlidersHome = (e) => {
+    console.log(parseFloat(e.homeTeamGamma))
+ 
+    this.setState({
+      ...this.state,
+      data: {
+        ...this.state.data,
+          homeTeam:{
+            ...this.state.data.homeTeam,
+            gamma: parseFloat(e.homeTeamGamma),
+          alfa: parseFloat(e.homeTeamAlfa),
+          beta: parseFloat(e.homeTeamBeta),
+          nu1: parseFloat(e.homeTeamNu1)
+            }          
+          }    
+    },()=>{
+      this.getPrediction()
+    })
+  }
+
   saveButton = () => {
 		const {show} = {...this.state};
 		this.setState({show: !show},()=>{
@@ -95,18 +116,19 @@ export default class Match extends Component {
   }
 
   render() {
+    console.log(this.state.data)
     if (Object.entries(this.state.data).length > 0) {
     return (
       <div className="match-container">
       <NavBar></NavBar>
-      <div className="match">
-          <div className="segunda">
-              <div className="undostres">
-                  <h2>{this.state.data.homeTeam.name}</h2>
+      <div className="match-barchat">
+          <div className="versus-barchat">
+              <div className="home-barchat">
+                  <p className="team-name">{this.state.data.homeTeam.name}</p>
                   <img onClick={this.displaySlider} className="segunda-image"src={this.state.data.homeTeam.crestUrl} width= "50px" alt="shield team" />
               </div>
-              <div className="premier">
-                  <h2>{this.state.data.awayTeam.name}</h2>
+              <div className="away-barchat">
+                  <p className="team-name">{this.state.data.awayTeam.name}</p>
                   <img onClick={this.displaySliderAway} className="premier-image" src={this.state.data.awayTeam.crestUrl} width= "50px" alt="shield team" />
               </div>
             </div>
@@ -123,15 +145,15 @@ export default class Match extends Component {
       ],
       xAxes: [
         {
-          categoryPercentage: 0.2,
-          barPercentage: 0.4,
-          barThickness: 30,
+          // categoryPercentage: 0.2,
+          // barPercentage: 0.4,
+          barThickness: 20,
           gridLines: {
             display: false,
             drawBorder: false,
           },
           ticks: {
-            fontSize: 50
+            fontSize: 20
         }
         }
       ]
@@ -155,7 +177,7 @@ export default class Match extends Component {
       </div>     
             {this.state.show ? null :
               <div>
-                {this.state.display && <HomeSliders />}
+                {this.state.display && <HomeSliders data={this.state.data} getSliders={this.getSlidersHome}/>}
               </div>
             }
 

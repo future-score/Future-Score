@@ -47,6 +47,8 @@ class App extends Component {
         this.setState({ loggedInUser: null });
       })
   }
+  componentWillMount(){this.fetchUser()}
+
 
 //   fetchUser = () => {
 //       //utilizamos el método loggedin para cualquier momento que deseemos obtener la información del usuario quede guardada en el state de app
@@ -131,7 +133,6 @@ componentDidMount(){
   // }
 
   render() {
-    console.log(this.state)
 
     if (this.state.loggedInUser) {
       return (

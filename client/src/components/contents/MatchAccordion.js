@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import DBservice from '../../services/DBservice'
 import "./cssContents/Accordion.css";
 import NavBar from './NavBar';
+import { Link } from 'react-router-dom'
 
 export default class MatchAccordion extends Component {
     constructor(props) {
@@ -13,13 +14,14 @@ export default class MatchAccordion extends Component {
 
     render() {
         return (
-            <div className="segunda">
-                <div className="undostres">
-                    <h3>{this.state.data.homeTeam.name}</h3>
+            <div className="match-day-container">
+                <div className="home-team-match">
+                    <p className="team-name">{this.state.data.homeTeam.name}</p>
                     <img className="segunda-image" src={this.state.data.homeTeam.crestUrl} width="50px" alt="" />
                 </div>
-                <div className="premier">
-                    <h3>{this.state.data.awayTeam.name}</h3>
+                    <Link to={`/match/${this.state.data.id}`}><button>Prediction</button></Link>
+                <div className="away-team-match">
+                    <p className="team-name">{this.state.data.awayTeam.name}</p>
                     <img className="premier-image" src={this.state.data.awayTeam.crestUrl} width="50px" alt="" />
                 </div>
             </div>

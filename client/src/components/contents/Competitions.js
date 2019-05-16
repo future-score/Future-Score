@@ -22,6 +22,7 @@ export default class Competitions extends Component {
 
   render() {
     if(this.state.user!==null){
+      //<div className="competition-container">
 
     return (
       <div>
@@ -30,18 +31,22 @@ export default class Competitions extends Component {
           <h2>¡Hola {this.state.user.username}!</h2>
             <div className="liga">
                <div className="santander">
-                 <img className="liga-image" src="/images/ligasantander.png" width= "150px" alt="" />
+               <a href="/matchdays"><img className="liga-image" src="/images/ligasantander.png" width= "120px" alt="" />
+                </a>
               </div>
               <div className="champions">
-                 <img className="champions-image" src="/images/champions.png" width= "150px" alt="" />
+               <a href="/matchdays"><img className="champions-image" src="/images/champions.png" width= "120px" alt="" />
+               </a> 
               </div>
               </div>
-    <div className="segunda">
+    <div className="competition-container">
       <div className="undostres">
-          <img className="segunda-image"src="/images/liga123.png" width= "150px" alt="" />
+         <a href="/macthdays"><img className="segunda-image"src="/images/liga123.png" width= "120px" alt="" />
+         </a> 
       </div>
       <div className="premier">
-          <img className="premier-image" src="/images/premier.png" width= "150px" alt="" />
+       <a href="/macthdays"><img className="premier-image" src="/images/premier.png" width= "120px" alt="" />
+       </a>   
       </div>
     </div>
   </div>

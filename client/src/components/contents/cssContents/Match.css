@@ -1,18 +1,51 @@
 body {
   margin: 0 auto;
-  background-color: #19231B;
+  /* background-color: #19231B; */
   /* overflow-y:hidden; */
   }
-
-.liga, .segunda {
-  margin: 0 auto;
-  /* border: 1px solid white; */
-  margin-top: 100px;
+  .versus-barchat {
+    border: 1px solid white;
+    margin-top: 50px;
   /* height: 80px; */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center;  
+}
+  .home-barchat{
+    border: 1px solid white;
+    width: 40%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .away-barchat{
+    border: 1px solid white;
+   width: 40%;
+   display: flex;
+   flex-wrap: wrap;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+  }
+  .chartjs-size-monitor {
+    width: 200px;
+    height: 300px;
+  }
+  /* .liga, .segunda { */
+  /* margin-top: 100px; */
+  /* margin-top: 60px;  */
+  /* height: 80px; */
+  /* display: flex;  
+  justify-content: space-between; 
+  align-items: center; */
   /* border: 1px solid white; */
   /* margin-top: 100px; */
   /* height: 50vh;  */
-}
+  /* } */
+
+  .button-save {
+    background-color: blue;
+  }

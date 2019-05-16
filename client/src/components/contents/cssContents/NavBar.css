@@ -1,9 +1,9 @@
-body {
+  /* body {
   margin: 0 auto;
   background-color: #19231B;
-  /* overflow-y:hidden; */
-  }
-  
+  overflow-y:hidden; 
+  }  
+   */
   .navbar {
     background: linear-gradient(to bottom,	#23927B 0%,	#1D8471 8%,	#10866C 100%);
     position: fixed; 
