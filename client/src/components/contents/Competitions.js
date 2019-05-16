@@ -4,17 +4,32 @@ import './cssContents/Competitions.css'
 
 export default class Competitions extends Component {
   constructor(props) {
-    super(props)
+    super (props)
+    this.state = {
+      data: {},
+      user: this.props.user
+    }
+
   }
+
+  componentWillReceiveProps=(nextProps)=>{
+    console.log(nextProps)
+  }
+
+  // getUser=()=>{
+  //   this.props.getUser()
+  // }
+
   render() {
-    console.log(this.props)
+    if(this.state.user!==null){
+      //<div className="competition-container">
+
     return (
       <div>
         <NavBar/>
-        <p className="message-user">{this.props.loggedInUser}</p>
         <div className="competitions">
-          <h2>Competitions</h2>
-            <div className="competition-container">
+          <h2>¡Hola {this.state.user.username}!</h2>
+            <div className="liga">
                <div className="santander">
                <a href="/matchdays"><img className="liga-image" src="/images/ligasantander.png" width= "120px" alt="" />
                 </a>
@@ -37,5 +52,10 @@ export default class Competitions extends Component {
   </div>
       </div>
     )
+  }else{
+    return (
+      <h1>LOADING...</h1>
+    )
   }
+}
 }

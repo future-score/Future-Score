@@ -4,6 +4,7 @@ import NavBar from './NavBar'
 import Dropzone from 'react-dropzone';
 import request from 'superagent';
 
+
 const CLOUDINARY_UPLOAD_PRESET = 'maeo0tmd';
 const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/polo/image/upload';
 
@@ -11,9 +12,10 @@ export default class Profile extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      uploadedFileCloudinaryUrl: ''
+      uploadedFileCloudinaryUrl: '',
     }
   }
+
   onImageDrop(files) {
     this.setState({
       uploadedFile: files[0]

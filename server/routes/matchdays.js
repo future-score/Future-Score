@@ -10,7 +10,7 @@ router.get('/:num', (req, res, next) => {
   .populate('matches')
   .then(matchday=>{
     res.json(matchday)
-    console.log(matchday)
+    
   })
   .catch((err)=>{
     console.log("Match not found");

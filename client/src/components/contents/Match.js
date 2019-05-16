@@ -164,7 +164,6 @@ export default class Match extends Component {
  {/* <div className="button-save">
   <button onClick={() => this.testChart()}>Dani</button>
 </div>  */}
-
   <div className="button-save">
     <button  onClick={this.saveButton}>Save</button>
   </div>
