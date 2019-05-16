@@ -13,12 +13,12 @@ const MongoStore = require('connect-mongo')(session);
 const cors = require('cors');
 const flash = require('flash')
 
-const { DBURLA } = process.env;
+const { DBURL } = process.env;
 mongoose.Promise = Promise;
 mongoose
-  .connect(`${process.env.DBURLA}`, {useNewUrlParser: true})
+  .connect(`${process.env.DBURL}`, {useNewUrlParser: true})
   .then(() => {
-    console.log(`Connected to Mongo on ${DBURLA}`)
+    console.log(`Connected to Mongo on ${DBURL}`)
   }).catch(err => {
 
     console.error('Error connecting to mongo', err)

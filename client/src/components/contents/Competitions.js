@@ -22,36 +22,37 @@ export default class Competitions extends Component {
 
   render() {
     if(this.state.user!==null){
-      //<div className="competition-container">
+    
 
-    return (
-      <div>
-        <NavBar/>
-        <div className="competitions">
-          <h2>¡Hola {this.state.user.username}!</h2>
-            <div className="liga">
-               <div className="santander">
-               <a href="/matchdays"><img className="liga-image" src="/images/ligasantander.png" width= "120px" alt="" />
-                </a>
-              </div>
-              <div className="champions">
-               <a href="/matchdays"><img className="champions-image" src="/images/champions.png" width= "120px" alt="" />
-               </a> 
-              </div>
-              </div>
-    <div className="competition-container">
-      <div className="undostres">
-         <a href="/macthdays"><img className="segunda-image"src="/images/liga123.png" width= "120px" alt="" />
-         </a> 
-      </div>
-      <div className="premier">
-       <a href="/macthdays"><img className="premier-image" src="/images/premier.png" width= "120px" alt="" />
-       </a>   
+      return (
+        <div>
+          <NavBar/>
+          <p className="message-user">{this.props.loggedInUser}</p>
+          <div className="competitions">
+            <h2>Competitions</h2>
+              <div className="competition-container">
+                 <div className="santander">
+                 <a href="/matchdays"><img className="liga-image" src="/images/ligasantander.png" width= "120px" alt="" />
+                  </a>
+                </div>
+                <div className="champions">
+                 <a href="/matchdays"><img className="champions-image" src="/images/champions.png" width= "120px" alt="" />
+                 </a>
+                </div>
+                </div>
+      <div className="competition-container">
+        <div className="undostres">
+           <a href="/macthdays"><img className="segunda-image"src="/images/liga123.png" width= "120px" alt="" />
+           </a>
+        </div>
+        <div className="premier">
+         <a href="/macthdays"><img className="premier-image" src="/images/premier.png" width= "120px" alt="" />
+         </a>
+        </div>
       </div>
     </div>
-  </div>
-      </div>
-    )
+        </div>
+      )
   }else{
     return (
       <h1>LOADING...</h1>
