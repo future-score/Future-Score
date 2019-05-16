@@ -7,7 +7,7 @@ import BoxMatchDays from './BoxMatchDays';
 let matchdays = []
 let uniqueItems = undefined
 
-export default class MatchaDays extends Component {
+export default class MatchDays extends Component {
     constructor() {
         super()
         this.state = {

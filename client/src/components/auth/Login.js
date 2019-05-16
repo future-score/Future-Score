@@ -75,7 +75,7 @@ class Login extends Component {
                   <label>
                     <i className="zmdi zmdi-lock" />
                   </label>
-                  <input className="login-input"
+                  <input  className="login-input"
                     type="password"
                     name="password"
                     id="pass"

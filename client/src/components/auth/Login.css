@@ -5,9 +5,10 @@
 body {
     font-size: 13px;
     line-height: 1.8;
-    color: #222;
-    overflow-y:hidden;
-    background: #1B1C1E;
+    background-color: #1B1C1E;
+    /* color: #222; */
+    /* overflow-y:hidden; */
+    /* background: #1B1C1E; */
      /* background: #f8f8f8; 
     font-weight: 400;
     font-family: Poppins;
@@ -15,6 +16,11 @@ body {
        */
     /* margin: 8px;  */
   }
+
+  input::-webkit-input-placeholder {
+    font-size: 15px;
+    line-height: 3;
+}
   .signup:-webkit-scrollbar {
     margin-bottom: 150px;
     display: none;
@@ -89,7 +95,7 @@ body {
   }
   .zmdi {
     display: inline-block;
-    font: normal normal normal 14px/1 'Material-Design-Iconic-Font';
+    font: normal normal normal 24px/1 'Material-Design-Iconic-Font';
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
     color: 	#AAABAD;
@@ -125,7 +131,7 @@ body {
     text-shadow: none;
     text-align: start;
     margin: 0em;
-    font: 400 11px system-ui;
+    font: 400 24px system-ui;
     -webkit-writing-mode: horizontal-tb !important;
   }
 
@@ -145,6 +151,7 @@ body {
     color: whitesmoke;
     border-bottom: none;
     width: auto;
+    font-size: 20px;
     padding: 15px 39px;
     -webkit-border-radius: 5px;
     margin-top: 25px;

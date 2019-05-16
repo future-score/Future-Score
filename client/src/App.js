@@ -42,26 +42,36 @@ class App extends Component {
         this.setState({ loggedInUser: null });
       })
   }
+  componentWillMount(){this.fetchUser()}
 
-  fetchUser() {
-    if (this.state.loggedInUser === null) {
-      //utilizamos el método loggedin para cualquier momento que deseemos obtener la información del usuario quede guardada en el state de app
-      return this.service.loggedin()
-        .then(response => {
-          this.setState({
-            loggedInUser: response
-          })
-        })
-        .catch(err => {
-          this.setState({
-            loggedInUser: false
-          })
-        })
-    }
-  }
+  fetchUser = () => {
+    this.service
+      .loggedin()
+      .then(response => {
+        console.log(response);
+        this.setState({ loggedInUser: response });
+      })
+      .catch(x => this.setState({ loggedInUser: false }));
+  };
+  // fetchUser() {
+  //   if (this.state.loggedInUser === null) {
+  //     //utilizamos el método loggedin para cualquier momento que deseemos obtener la información del usuario quede guardada en el state de app
+  //     return this.service.loggedin()
+  //       .then(response => {
+  //         this.setState({
+  //           loggedInUser: response
+  //         })
+  //       })
+  //       .catch(err => {
+  //         this.setState({
+  //           loggedInUser: false
+  //         })
+  //       })
+  //   }
+  // }
 
   render() {
-    this.fetchUser()
+    // this.fetchUser()
 
     if (this.state.loggedInUser) {
       return (
@@ -85,7 +95,7 @@ class App extends Component {
               <Switch>
                 <Route exact path='/signup' render={() => <Signup getUser={this.getUser} />} />
                 <Route exact path='/' render={() => <Login getUser={this.getUser} />} />
-                <Route exact path='/competitions' render={() => <Competitions getUser={this.getUser} />} />
+                <Route exact path='/competitions' render={() => <Competitions getUser={this.getUser} loggedInUser={this.state.loggedInUser} />} />
                 <Route exact path='/matchdays' render={() => <MatchDays />} />
                 <Route exact path='/match/:id' component={Match} />
                 <Route exact path='/barchart' render={() => <BarChart /> } />
