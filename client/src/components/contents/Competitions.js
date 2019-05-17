@@ -27,7 +27,7 @@ export default class Competitions extends Component {
       return (
         <div>
           <NavBar/>
-          <p className="message-user"></p>
+          <p className="message-user">Welcome {this.state.user.username}!</p>
           <div className="competitions">
             <h2>Competitions</h2>
               <div className="competition-container">

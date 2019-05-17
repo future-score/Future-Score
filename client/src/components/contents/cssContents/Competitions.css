@@ -19,8 +19,9 @@ body {
     box-sizing: border-box;
   }
   .message-user {
-    margin-top: 150px;
-    border: 1px solid white;
+    text-align: center;
+    margin-top: 25px;
+    font-size: 18px;
   }
 
   h2 {
