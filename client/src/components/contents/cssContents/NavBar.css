@@ -7,6 +7,13 @@
     border-bottom: 1px solid #FAFAFA;
   }
   
+  .navbar-a {
+    text-decoration: inherit;
+    color: inherit;
+    cursor: auto;
+    color: #CEC4C2;
+  }
+
   p{
     color:#E75B00;
   }
@@ -16,6 +23,10 @@
     width: 100%;
     align-items: center;
 
+  }
+
+  .off-button {
+    margin-left: 10px;
   }
 /*   
   .cat {

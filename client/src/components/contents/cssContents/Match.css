@@ -75,6 +75,6 @@ body {
     border-radius: 5px;
   }
 
-  #chart-1{
+ .chart-box > div:first-child{
     margin: 0 auto;
   }

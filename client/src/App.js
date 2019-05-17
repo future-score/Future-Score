@@ -146,13 +146,13 @@ componentDidMount(){
             <Route exact path='/' render={() => <Login getUser={this.getUser} />} />
             <Route exact path='/competitions' render={() => <Competitions user={this.state.loggedInUser}/>} />
             <Route exact path='/matchdays' render={() => <MatchDays user={this.state.loggedInUser}/>} />
-            <Route exact path='/match/:id' component={Match} user={this.state.loggedInUser}/>
+            <Route path='/match/:id' render={(props) => <Match {...props} user={this.state.loggedInUser}/>}/>
             <Route exact path='/barchart' render={() => <BarChart user={this.state.loggedInUser}/> } />
             <Route exact path='/sliders' render={() => <HomeSliders user={this.state.loggedInUser}/>} />
             <Route exact path='/asliders' render={() => <AwaySliders user={this.state.loggedInUser}/>} />
-            <Route exact path ='/profile/:id' render={() => <Profile user={this.state.loggedInUser}/>} />
+            <Route path ='/profile/:id' render={() => <Profile user={this.state.loggedInUser}/>} />
             <Route exact path='/searchbar' render={() => <SearchBar user={this.state.loggedInUser}/>} />
-            <Route exact path='/forecasts/:id' render={() => <Forecasts user={this.state.loggedInUser}/>} />
+            <Route path='/forecasts/:id' render={() => <Forecasts user={this.state.loggedInUser}/>} />
             </Switch>
         </div>
         </React.Fragment>

@@ -1,5 +1,3 @@
-/* * {
-} */
 
 body {
     font-size: 13px;
@@ -28,7 +26,7 @@ body {
   .signup-content {
     flex-direction: column;
     justify-content: center;
-    padding: 75px 0;
+    padding: 0px 0;
     display: -webkit-flex;
   }
   .signup-form {
@@ -104,8 +102,8 @@ body {
     padding: 6px 30px;
     outline: none;
     -webkit-appearance: unset !important;
-    background-color: #1B1C1E;
-    color: grey;
+    background-color: transparent;
+    color: #DFDFDF;
     -webkit-rtl-ordering: logical;
     cursor: text;
     text-rendering: auto;
@@ -151,23 +149,31 @@ body {
   border: none;
 
   } */
+#logo {
+  display: flex;
+  margin-top: 150px;
+  justify-content: center;
 
+}
   .center {
     text-align: center;
     padding-top: 50px;
   }
-
+  .center > span {
+    font-size: 18px;
+    color: #CEC4C2;
+  }
   span{
     color: #494A4C;
   }
 
-  a {
+  .account-span {
+    font-size: 18px;
     text-decoration: none;
     cursor: pointer;
-    color: #A9AAAC;
+    color: #E75B00;
     margin-left: 5px;
   }
-
   /* Login button animation */
   /* #loginDiv {
     text-align: center;

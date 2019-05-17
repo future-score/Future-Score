@@ -115,7 +115,7 @@ export default class MatchDays extends Component {
 
         return (
             <div>
-                <NavBar></NavBar>
+                <NavBar userId={this.props.user._id}></NavBar>
                 <div>
                     {toShow}
                 </div>

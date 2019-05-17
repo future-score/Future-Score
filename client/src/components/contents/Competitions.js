@@ -26,10 +26,10 @@ export default class Competitions extends Component {
 
       return (
         <div>
-          <NavBar/>
-          <p className="message-user">Welcome {this.state.user.username}!</p>
+          <NavBar userId={this.state.user._id}/>
+          <p className="message-user">Bienvenido {this.state.user.username}!</p>
           <div className="competitions">
-            <h2>Competitions</h2>
+            <h2>Competiciones</h2>
               <div className="competition-container">
                  <div className="santander">
                  <a href="/matchdays"><img className="liga-image" src="/images/ligasantander.png" width= "120px" alt="" />

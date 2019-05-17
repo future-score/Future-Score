@@ -135,7 +135,7 @@ export default class Match extends Component {
     if (Object.entries(this.state.data).length > 0) {
     return (
       <div className="match-container">
-      <NavBar></NavBar>
+      <NavBar userId={this.props.user._id}></NavBar>
       <div className="match-barchat">
           <div className="versus-barchat">
               <div className="home-barchat">
@@ -149,7 +149,7 @@ export default class Match extends Component {
             </div>
       </div>
       
-    {this.state.show?null: <div>
+    {this.state.show?null: <div className="chart-box">
   <ColumnChart 
   dataset={{borderColor: '#e75b00'}}
   colors={['#FAFAFA']}

@@ -31,8 +31,8 @@ displayAside() {
            
            {this.state.display ?
            <div className="navbar-aside">
-            <a href="/profile">Profile</a>
-            <a href="/" onClick={()=>this.props.logout()}>LOGOUT</a>
+            <a className="navbar-a"href={`/profile/${this.props.userId}`}>Profile</a>
+            <a href="/" onClick={()=>this.props.logout()}><i class="off-button zmdi zmdi-power"></i></a>
            </div>
            : null
            }
