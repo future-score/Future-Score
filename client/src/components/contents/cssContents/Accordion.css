@@ -1,7 +1,8 @@
 .container {
   width: 80%;
-  margin: 3.75rem auto;
+  margin: 2.5rem auto;
   padding: 0 1.25rem;
+  background-color: #3c3c3c;
 }
 
 .accordion {
@@ -9,8 +10,8 @@
   padding: 0;
   background: #464749;
   color: #00432f;
-  border: 1px solid #d7d9d8;
   cursor: pointer;
+  border-radius: 15px;
 }
 
 .accordion__item {
@@ -42,7 +43,7 @@ input[type="checkbox"] {
   position: absolute;
   right: 0;
   margin-top: 26px;
-  margin-right: 6%;
+  margin-right: 100px;
 }
 
 .accordion__arrow::before,
@@ -53,6 +54,8 @@ input[type="checkbox"] {
   width: 3px;
   height: 9px;
   transition: transform 0.25s ease-in-out;
+  background-color: #e75b00;
+  margin-top: 3px;
 }
 
 .accordion__arrow::before {
@@ -81,7 +84,6 @@ input[type="checkbox"]:checked ~ .accordion__arrow::after {
   transition: all 0.35s ease-in-out;
   line-height: 1.6;
   z-index: 2;
-  border: 1px solid black;
 }
 
 input[type="checkbox"]:checked ~ .vs-container{
@@ -90,18 +92,20 @@ input[type="checkbox"]:checked ~ .vs-container{
 }
 
 .match-day-container { 
-  border: 1px solid white;
-  margin: 0 auto;
+  margin: 15px auto;
   /* height: 80px; */
   display: flex; 
   justify-content: space-between; 
-  align-items: center;
+  /* align-items: center; */
+  background-color: #3f3f3f;
+  padding-bottom: 15px;
+  border-radius: 15px;
+  padding: 20px 10px;
   /* border: 1px solid white; */
   /* margin-top: 100px; */
   /* height: 50vh;  */
  }
  .home-team-match {
-   border: 1px solid white;
    width: 40%;
    display: flex;
    /* flex-wrap: wrap; */
@@ -111,7 +115,6 @@ input[type="checkbox"]:checked ~ .vs-container{
  }
 
  .away-team-match {
-  border: 1px solid white;
   width: 40%;
   display: flex;
   flex-direction: column;
@@ -122,6 +125,19 @@ input[type="checkbox"]:checked ~ .vs-container{
  .team-name {
    text-align: center;
  }
+
+ .prediction-button{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+ }
+
+.prediction{
+  font-size: 28px;
+  margin: 0;
+  align-self: center;
+}
+
 /* .santander, .champions, .undostres, .premier { */
   /* border: 1px solid white; */
   /* background-color:	#464749;

@@ -105,7 +105,7 @@ export default class MatchDays extends Component {
         const toShow = []
 
         for (var key in this.state.competition) {
-            toShow.push(<BoxMatchDays key={key} data={this.state.competition[key]} />)
+            toShow.push(<BoxMatchDays key={key} data={this.state.competition[key]} num={key}/>)
         }
 
         // for (var key in competition)
