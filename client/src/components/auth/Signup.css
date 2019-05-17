@@ -1,15 +1,15 @@
 body {
     font-size: 13px;
     line-height: 1.8;
-    background-color: #1B1C1E;    /* background: #f8f8f8; */
+    background-color: #212b2d; 
     font-weight: 400;
     font-family: Poppins;
     display: block;
     /* margin: 8px; */
 }
-.signup {
-    margin-bottom: 150px;
-}
+/* .signup {
+    margin-bottom: 80px;
+} */
 section {
     display: block;
 }
@@ -64,7 +64,7 @@ form {
 }
 .form-group {
     position: relative;
-    margin-bottom: 25px;
+    /* margin-bottom: 5px; */
     overflow: hidden;
 }
 label {
@@ -102,7 +102,7 @@ label {
     box-sizing: border-box;
     outline: none;
     -webkit-appearance: unset !important;
-    background-color: #1B1C1E;
+    background-color: transparent;
     -webkit-rtl-ordering: logical;
     cursor: text;
     text-rendering: auto;
@@ -126,7 +126,7 @@ label {
 .form-submit {
     display: inline-block;
     /* background: #6dabe4; */
-    color: #fff;
+    color: #212b2d;
     border-bottom: none;
     width: auto;
     padding: 15px 39px;
@@ -134,3 +134,16 @@ label {
     margin-top: 25px;
     cursor: pointer;
 }
+
+.account-a {
+    font-size: 18px;
+    text-decoration: none;
+    cursor: pointer;
+    color: #E75B00;
+    margin-left: 5px4
+}
+#logo {
+    display: flex;
+    justify-content: center;
+  
+  }

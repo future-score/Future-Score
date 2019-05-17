@@ -43,10 +43,13 @@ class Login extends Component {
     if (this.state.logged) return <Redirect to={"/competitions"} />;
     return (
       <div className="signup">
+              <div id='logo'>
+              <img  src="../images/logo.png" width="280px" height='50' alt=""/>
+              </div>
         <div className="container">
           <div className="signup-content">
             <div className="signup-form">
-              <h2 className="form-title">Future Score</h2>
+              {/* <h2 className="form-title">Future Score</h2> */}
               <form
                 onSubmit={this.handleFormSubmit}
                 method="POST"
@@ -96,8 +99,8 @@ class Login extends Component {
              
               <div className="center">
                 {/* <hr className="type-10"/> */}
-                <span>Don´t have an account?</span>
-                <a href="/signup">Sign up</a>
+                <span >Don´t have an account?</span>
+                <a className="account-span" href="/signup">Sign up</a>
               </div>
               
               {/* <h1> {this.state.error} ? "Error" : ""</h1> */}

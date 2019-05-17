@@ -21,16 +21,18 @@ displayAside() {
 
   render() {
     return (
-     <div>
+     <div className="globalNav">
         <nav className="navbar">
-          <a href="/competitions"><img className="cat"src="https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/styles/480/public/media/image/2017/11/274699-entender-gato.jpg?itok=UDpzBDsf" width="40px" height="40px"alt=""/></a>  
-          <p>polo</p>
-           <a onClick={this.displayAside}><img className="user" src="https://static.thenounproject.com/png/17241-200.png" width="30px" height="30px"alt=""/>
+        
+          <a href="/competitions"><img className="cat"src="../images/logo.png" width="170px" alt=""/></a>  
+           {/* <a onClick={this.displayAside}><img className="user" src="https://static.thenounproject.com/png/17241-200.png" width="30px" height="30px"alt=""/> */}
+           <a onClick={this.displayAside}><i className="zmdi zmdi-account-circle"/>
+           
            
            {this.state.display ?
            <div className="navbar-aside">
-            <a href="/profile">Profile</a>
-            <a href="/" onClick={()=>this.props.logout()}>LOGOUT</a>
+            <a className="navbar-a"href={`/profile/${this.props.userId}`}>Profile</a>
+            <a href="/" onClick={()=>this.props.logout()}><i class="off-button zmdi zmdi-power"></i></a>
            </div>
            : null
            }

@@ -11,16 +11,15 @@
 
 .forecast-title {
   margin-top: 50px;
-  border: 1px white solid;
 }
 
 .forecast-container {
-  border: 1px solid white;
   margin: 0 20px;
 }
 
 .match-forecast {
   border: 1px solid white;
+  border-radius: 5px;
   margin: 0 auto;
   /* border: 1px solid white; */
   margin-top: 100px;
@@ -34,17 +33,18 @@
 }
 
 .home-team {
-  border: 1px solid white;
   justify-content: space-around;
 }
 
 .away-team {
-  border: 1px solid white;
 }
 
 .prediction-container {
-  border: 1px solid white;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.finger  {
+margin-left: 20px;
 }

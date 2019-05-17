@@ -17,12 +17,12 @@ export default class Forecasts extends Component {
   }
   render() {
     return (
+      
       <div>
-        <NavBar></NavBar>
+        <NavBar userId={this.props.user._id}></NavBar>
         <div  className="forecast-title">
-          <h2>Your Forecasts</h2>
+          <h2>Tus predicciones</h2>
         </div>
-        <div id="personal-image"><img id="user-user" src="https://images.pexels.com/photos/20787/pexels-photo.jpg?cs=srgb&dl=adorable-animal-cat-20787.jpg&fm=jpg" width= "200px" alt="" /></div>
         <div className="forecast-container">
           <div className="match-forecast">
               <div className="home-team">
@@ -35,8 +35,26 @@ export default class Forecasts extends Component {
             </div>
           {this.state.display ? 
           <div className="prediction-container">
-            <p>Your Prediction</p>
-            <p>FS Prediction</p>
+            <p>Tu predicción<i className="finger zmdi zmdi-thumb-up"></i>
+</p>
+          </div>
+          : null
+          }
+      </div>
+      <div className="forecast-container">
+          <div className="match-forecast">
+              <div className="home-team">
+                  <img className="segunda-image"src="http://as00.epimg.net/img/comunes/fotos/fichas/equipos/large/172.png" width= "50px" alt="" />
+              </div>
+              <button onClick={this.displayPrediction}><i className="fa fa-angle-double-down"></i></button>
+              <div className="away-team">
+                  <img className="premier-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/EscudoRayo.svg/256px-EscudoRayo.svg.png" width= "50px" alt="" />
+              </div>
+            </div>
+          {this.state.display ? 
+          <div className="prediction-container">
+            <p>Tu predicción<i className=" finger zmdi zmdi-thumb-down"></i>
+</p>
           </div>
           : null
           }
