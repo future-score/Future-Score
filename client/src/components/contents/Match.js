@@ -135,22 +135,26 @@ export default class Match extends Component {
     if (Object.entries(this.state.data).length > 0) {
     return (
       <div className="match-container">
-      <NavBar></NavBar>
+      <NavBar userId={this.props.user._id}></NavBar>
       <div className="match-barchat">
           <div className="versus-barchat">
               <div className="home-barchat">
                   <p className="team-name">{this.state.data.homeTeam.name}</p>
-                  <img onClick={this.displaySlider} className="segunda-image"src={this.state.data.homeTeam.crestUrl} width= "50px" alt="shield team" />
+                  <img onClick={this.displaySlider} className="team-image"src={this.state.data.homeTeam.crestUrl} width= "50px" alt="shield team" />
               </div>
               <div className="away-barchat">
                   <p className="team-name">{this.state.data.awayTeam.name}</p>
-                  <img onClick={this.displaySliderAway} className="premier-image" src={this.state.data.awayTeam.crestUrl} width= "50px" alt="shield team" />
+                  <img onClick={this.displaySliderAway} className="team-image" src={this.state.data.awayTeam.crestUrl} width= "50px" alt="shield team" />
               </div>
             </div>
       </div>
       
-    {this.state.show?null: <div>
-  <ColumnChart library={
+    {this.state.show?null: <div className="chart-box">
+  <ColumnChart 
+  dataset={{borderColor: '#e75b00'}}
+  colors={['#FAFAFA']}
+    width='75%'
+    library={
   { responsive: true,
     scales:{
       yAxes:[
@@ -160,9 +164,9 @@ export default class Match extends Component {
       ],
       xAxes: [
         {
-          // categoryPercentage: 0.2,
-          // barPercentage: 0.4,
-          barThickness: 20,
+          categoryPercentage: 0.33,
+          barPercentage: 1.5,
+          // barThickness: 50,
           gridLines: {
             display: false,
             drawBorder: false,

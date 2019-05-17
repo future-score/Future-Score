@@ -52,6 +52,7 @@ class Signup extends Component {
     }
     return (
       <div className="signup">
+     
         <div className="container">
           <div className="signup-content">
             <div className="signup-form">
@@ -105,14 +106,19 @@ class Signup extends Component {
               </form>
               <div className="center">
                 {/* <hr className="type-10"/> */}
-                <span>Do you already have an account?</span>
-                <a href="/">Login</a>
+                <span>Do you already have an account?</span><br/>
+                
+                <a className="account-a" href="/">Login</a>
               </div>
-              <h1>{this.state.error ? "Error" : null}</h1>
+              
+              {/* <h1>{this.state.error ? "Error" : null}</h1> */}
             </div>
           </div>
         </div>
-        <h1>{this.state.error ? "Error" : ""}</h1>
+        {/* <h1>{this.state.error ? "Error" : ""}</h1> */}
+        <div id='logo'>
+              <img  src="../images/logo.png" width="130px" height='30' alt=""/>
+              </div>
       </div>
 
       // <div>

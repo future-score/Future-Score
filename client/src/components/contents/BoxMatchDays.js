@@ -33,7 +33,6 @@ export default class BoxMatchDays extends Component {
 
 
     render() {
-        // console.log(this.props)
         return (
             // <div style={{color: "white"}}>
             //     {this.props.data.map(match => <div>{match.homeTeam.name}</div>)}
@@ -46,10 +45,10 @@ export default class BoxMatchDays extends Component {
                         <i className="accordion__arrow"></i>
                         <h2 className="accordion__title">Jornada {this.props.num}</h2>
                         <div className="vs-container">
-                                {this.state.data.map(match=>{
+                                {this.state.data.map((match, idx)=>{
                                     return (
                             // <div className="segunda">
-                                        <MatchAccordion data={match}/>
+                                        <MatchAccordion key={idx} data={match}/>
                             // </div>
                                     )})
                                 })

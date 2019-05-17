@@ -1,20 +1,8 @@
-/* * {
-  box-sizing: border-box;
-} */
 
 body {
     font-size: 13px;
     line-height: 1.8;
-    background-color: #1B1C1E;
-    /* color: #222; */
-    /* overflow-y:hidden; */
-    /* background: #1B1C1E; */
-     /* background: #f8f8f8; 
-    font-weight: 400;
-    font-family: Poppins;
-     display: block; 
-       */
-    /* margin: 8px;  */
+    background-color: #212b2d;
   }
 
   input::-webkit-input-placeholder {
@@ -31,16 +19,14 @@ body {
   .container {
     background: #1B1C1E;
     margin: 0 auto;
-    /* -webkit-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05); */
-    /* -webkit-border-radius: 20px; */
   }
   div {
     display: block;
   }
   .signup-content {
-    -webkit-flex-direction: column;
-    -webkit-justify-content: center;
-    padding: 75px 0;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0px 0;
     display: -webkit-flex;
   }
   .signup-form {
@@ -48,7 +34,6 @@ body {
     margin-left: 0px;
     margin-right: 0px;
     padding-left: 0px;
-    /* box-sizing: border-box; */
     padding: 0 30px;
     overflow: hidden;
   }
@@ -115,11 +100,10 @@ body {
     border: none;
     border-bottom: 1px solid #999;
     padding: 6px 30px;
-    box-sizing: border-box;
     outline: none;
     -webkit-appearance: unset !important;
-    background-color: #1B1C1E;
-    color: grey;
+    background-color: transparent;
+    color: #DFDFDF;
     -webkit-rtl-ordering: logical;
     cursor: text;
     text-rendering: auto;
@@ -153,7 +137,7 @@ body {
     width: auto;
     font-size: 20px;
     padding: 15px 39px;
-    -webkit-border-radius: 5px;
+    border-radius: 5px;
     margin-top: 25px;
     cursor: pointer;
   }
@@ -165,19 +149,95 @@ body {
   border: none;
 
   } */
+#logo {
+  display: flex;
+  margin-top: 150px;
+  justify-content: center;
 
+}
   .center {
     text-align: center;
     padding-top: 50px;
   }
-
+  .center > span {
+    font-size: 18px;
+    color: #CEC4C2;
+  }
   span{
     color: #494A4C;
   }
 
-  a {
+  .account-span {
+    font-size: 18px;
     text-decoration: none;
     cursor: pointer;
-    color: #A9AAAC;
+    color: #E75B00;
     margin-left: 5px;
   }
+  /* Login button animation */
+  /* #loginDiv {
+    text-align: center;
+    margin-top: 60px;
+  }
+  .btn {
+    position: relative;
+    color: white;
+    width: 256px;
+    height: 64px;
+    line-height: 64px;
+    transition: all 0.3s;
+    span {
+      transition: all 0.3s;
+      transform: scale(1, 1);
+    }
+  }
+  
+  .btn::before, .btn::after {
+    content: '';
+    position: absolute;
+    transition: all 0.3s;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+  
+  .btn-secundario::before, .btn-secundario::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    transition: all 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+  }
+  
+  .btn-secundario:hover::after {
+    animation-name: rotatecw;
+    animation-duration: 2s;
+  }
+  .btn-secundario:hover::before {
+    animation-name: rotateccw; 
+    animation-duration: 3s;
+  }
+  .btn-secundario:hover::after, .btn-secundario:hover::before {
+    left: 96px;
+    width: 64px;
+    
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+  
+  @keyframes rotatecw { 
+      from {transform: rotate(0deg);}
+      to {transform: rotate(360deg);}
+  }
+  
+  @keyframes rotateccw {
+      from {transform: rotate(0deg);}
+      to {transform: rotate(-360deg);}
+  }
+   End animartion */

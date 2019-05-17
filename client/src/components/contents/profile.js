@@ -3,6 +3,7 @@ import './cssContents/Profile.css'
 import NavBar from './NavBar'
 import Dropzone from 'react-dropzone';
 import request from 'superagent';
+import {Link} from 'react-router-dom'
 
 
 const CLOUDINARY_UPLOAD_PRESET = 'maeo0tmd';
@@ -45,7 +46,7 @@ export default class Profile extends Component {
   render() {
     return (
      <div className="FileUpload">
-       <NavBar></NavBar>
+       <NavBar userId={this.props.user._id}></NavBar>
         <div  className="profile-title">
           <h2>Profile</h2>
         </div>
@@ -61,7 +62,7 @@ export default class Profile extends Component {
           >
             <input {...getInputProps()} />
             {
-            <button className="upload-button">Upload Image</button>
+            <button className="upload-button">Actualizar imagen</button>
             }
           </div>
         )
@@ -72,20 +73,20 @@ export default class Profile extends Component {
             <div className="bot-1"></div>
      <div id="username-div" className="bot-1">Polo</div>
   </div>
-    <div className="personalItems">
+    {/* <div className="personalItems">
         <div className="bot-1"></div>
         <div id="email-div" className="bot-1">Correo</div>
-    </div>
+    </div> */}
   
     <div className="personalItems">
         <div className="bot-1"></div>
-        <a href="/forecasts"><div id="birth-div" className="bot-1">Mis predicciones</div></a>
+        <Link to={`/forecasts/${this.props.user._id}`}><div id="birth-div" className="bot-1">Mis predicciones</div></Link>
     </div>
 
-    <div className="theButtons">
+    {/* <div className="theButtons">
       <button type="button" id="editButton">Edit</button>
       <button id="deleteButton"><a className="a-remove-button">Delete</a></button>
-    </div>
+    </div> */}
         {/* <Dropzone
     onDrop={this.onImageDrop.bind(this)}
     accept="image/*"
