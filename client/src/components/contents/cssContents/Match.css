@@ -1,34 +1,41 @@
 body {
   margin: 0 auto;
-  /* background-color: #19231B; */
+  background-color: #3c3c3c;
   /* overflow-y:hidden; */
   }
   .versus-barchat {
-    border: 1px solid white;
     margin-top: 50px;
   /* height: 80px; */
   display: flex; 
-  justify-content: space-between; 
-  align-items: center;  
+  justify-content: center; 
+  align-items: stretch;  
 }
   .home-barchat{
-    border: 1px solid white;
     width: 40%;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-radius: 15px;
+    border: 1px solid #555;
+    margin-right: 5px;
+    padding-bottom: 15px;
+    cursor: pointer;
   }
 
   .away-barchat{
-    border: 1px solid white;
    width: 40%;
    display: flex;
    flex-wrap: wrap;
    flex-direction: column;
    justify-content: center;
    align-items: center;
+   border-radius: 15px;
+    border: 1px solid #555;
+    margin-left: 5px;
+    padding-bottom: 15px;
+    cursor: pointer;
   }
   .chartjs-size-monitor {
     width: 200px;
@@ -46,6 +53,28 @@ body {
   /* height: 50vh;  */
   /* } */
 
+  .match-container{
+    background-color: #3c3c3c;
+  }
+
+  .team-image{
+    width: 30px;
+  }
+
   .button-save {
-    background-color: blue;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .button-save > button {
+    background: #e75b00;
+    font-size: 18px;
+    color: #fafafa;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+  }
+
+  #chart-1{
+    margin: 0 auto;
   }
